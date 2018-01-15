@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <!--
+
+        Copyright 2014-2015 the original author or authors
+
+        Licensed under the Apache License, Version 2.0 (the “License”);
+        you may not use this file except in compliance with the License.
+        You may obtain a copy of the License at
+
+             http://www.apache.org/licenses/LICENSE-2.0
+
+        Unless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an “AS IS” BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+
+        -->
+        <!ELEMENT ddal-config (settings?,schema,cluster,dataNodes?,algorithms?)>
+
+        <!ELEMENT settings (property*)>
+
+        <!ELEMENT schema (tableGroup*, table*, sequence*)>
+        <!ATTLIST schema
+                name CDATA #REQUIRED
+                public CDATA #IMPLIED
+                force (true|false) #IMPLIED
+                >
+
+
+        <!ELEMENT cluster (shard+)>
+        <!ELEMENT shard (member+)>
+        <!ATTLIST shard
+                name CDATA #REQUIRED
+                >
+
+
+        <!ELEMENT dataNodes (datasource+)>
+        <!ELEMENT datasource (property*)>
+        <!ATTLIST datasource
+                id CDATA #REQUIRED
+                class CDATA #IMPLIED
+                jndi-name CDATA #IMPLIED
+                >
+
+        <!ELEMENT algorithms (ruleAlgorithm+)>
+        <!ELEMENT ruleAlgorithm (property*)>
+        <!ATTLIST ruleAlgorithm
+                name CDATA #REQUIRED
+                class CDATA #REQUIRED
+                > 
+
+        <!ELEMENT table ((nodes|node|broadcast)?, tableRule?)>
+        <!ATTLIST table
+                name CDATA #REQUIRED
+                ruleColumns CDATA #IMPLIED
+                metaNodeIndex CDATA #IMPLIED
+                scanLevel (unlimited|anyIndex|uniqueIndex|shardingKey) #IMPLIED
+                >
+
+        <!ELEMENT tableGroup (tables, nodes, tableRule)>
+        <!ATTLIST tableGroup
+                metaNodeIndex CDATA #IMPLIED
+                scanLevel (unlimited|anyIndex|uniqueIndex|shardingKey) #IMPLIED
+                >
+        <!ELEMENT tables (table+)>
+                
+        <!ELEMENT sequence (property*)>
+        <!ATTLIST sequence
+                name CDATA #REQUIRED
+                strategy (hilo|seqhilo|snowflake) #REQUIRED
+                >
+
+        <!ELEMENT property (#PCDATA)>
+        <!ATTLIST property
+                name CDATA #REQUIRED
+                value CDATA #REQUIRED
+                >
+
+
+        <!ELEMENT member (#PCDATA)>
+        <!ATTLIST member
+                ref CDATA #REQUIRED
+                wWeight CDATA #IMPLIED
+                rWeight CDATA #IMPLIED
+                > 
+
+        <!ELEMENT nodes (node+)>
+        <!ELEMENT broadcast (#PCDATA|node)*>
+        <!ELEMENT tableRule (columns,algorithm)>
+
+        <!ELEMENT node (#PCDATA)>
+        <!ATTLIST node
+                shard CDATA #REQUIRED
+                catalog CDATA #IMPLIED
+                schema CDATA #IMPLIED
+                name CDATA #IMPLIED
+                suffix CDATA #IMPLIED
+                >
+                
+        <!ELEMENT columns (#PCDATA)>
+        <!ELEMENT algorithm (#PCDATA)>
