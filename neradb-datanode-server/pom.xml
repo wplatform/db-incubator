@@ -8,11 +8,11 @@
 		<artifactId>neradb-project</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<groupId>com.neradb</groupId>
+	
 	<artifactId>neradb-datanode-server</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>neradb-datanode-server</name>
 	<url>http://maven.apache.org</url>
+	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
