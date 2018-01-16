@@ -1,11 +1,10 @@
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://maven.apache.org/POM/4.0.0"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>openddal-project</artifactId>
-	<groupId>com.openddal</groupId>
-	<version>1.2.1-SNAPSHOT</version>
+	<artifactId>neradb-project</artifactId>
+	<groupId>com.neradb</groupId>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>openddal-project</name>
 	<url>https://github.com/openddal/openddal</url>
@@ -50,12 +49,14 @@
 	</licenses>
 
 	<modules>
-		<module>openddal-engine</module>
-		<module>openddal-jdbc</module>
-		<module>openddal-kvstore</module>
-		<module>openddal-server</module>
-		<module>openddal-tests</module>
-	</modules>
+		<module>neradb-common-utils</module>
+		<module>neradb-sqlnode-engine</module>
+        <module>neradb-sqlnode-server</module>
+		<module>neradb-datanode-engine</module>
+		<module>neradb-datanode-server</module>
+		<module>neradb-embedded-jdbc</module>
+		<module>neradb-meta-server</module>
+  </modules>
 
 	<dependencyManagement>
 		<dependencies>
