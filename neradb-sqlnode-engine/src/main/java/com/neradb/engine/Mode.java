@@ -20,7 +20,7 @@ public class Mode {
     /**
      * The name of the default mode.
      */
-    static final String REGULAR = "REGULAR";
+    public static final String REGULAR = "REGULAR";
 
     private static final HashMap<String, Mode> MODES = New.hashMap();
 

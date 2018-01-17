@@ -24,7 +24,7 @@ import com.neradb.util.New;
 /**
  * Represents a statement.
  */
-public class JdbcStatement extends TraceObject implements Statement, JdbcStatementBackwardsCompat {
+public class JdbcStatement extends TraceObject implements Statement {
 
     protected JdbcConnection conn;
     protected SessionInterface session;

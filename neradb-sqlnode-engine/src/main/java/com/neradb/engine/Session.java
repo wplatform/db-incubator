@@ -486,7 +486,7 @@ public class Session extends SessionWithState {
      *
      * @param constraint the constraint
      */
-    void removeLocalTempTableConstraint(Constraint constraint) {
+    public void removeLocalTempTableConstraint(Constraint constraint) {
         if (localTempTableConstraints != null) {
             localTempTableConstraints.remove(constraint.getName());
             synchronized (database) {
@@ -595,16 +595,6 @@ public class Session extends SessionWithState {
 
     public Database getDatabase() {
         return database;
-    }
-
-    @Override
-    public int getPowerOffCount() {
-        return database.getPowerOffCount();
-    }
-
-    @Override
-    public void setPowerOffCount(int count) {
-        database.setPowerOffCount(count);
     }
 
     /**

@@ -53,24 +53,8 @@ public interface SessionInterface extends Closeable {
      *
      * @return if the session has been closed
      */
-    boolean isClosed();
-
-    /**
-     * Get the number of disk operations before power failure is simulated.
-     * This is used for testing. If not set, 0 is returned
-     *
-     * @return the number of operations, or 0
-     */
-    int getPowerOffCount();
-
-    /**
-     * Set the number of disk operations before power failure is simulated.
-     * To disable the countdown, use 0.
-     *
-     * @param i the number of operations
-     */
-    void setPowerOffCount(int i);
-
+    boolean isClosed(); 
+    
     /**
      * Get the data handler object.
      *

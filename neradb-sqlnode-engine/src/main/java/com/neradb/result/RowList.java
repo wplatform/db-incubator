@@ -40,11 +40,7 @@ public class RowList {
      */
     public RowList(Session session) {
         this.session = session;
-        if (session.getDatabase().isPersistent()) {
-            maxMemory = session.getDatabase().getMaxOperationMemory();
-        } else {
-            maxMemory = 0;
-        }
+        maxMemory = session.getDatabase().getMaxOperationMemory();
     }
 
     private void writeRow(Data buff, Row r) {

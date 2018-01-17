@@ -41,7 +41,7 @@ import com.neradb.value.ValueNull;
  * @author Thomas Mueller
  */
 public class JdbcCallableStatement extends JdbcPreparedStatement implements
-        CallableStatement, JdbcCallableStatementBackwardsCompat {
+        CallableStatement {
 
     private BitField outParameters;
     private int maxOutParameters;

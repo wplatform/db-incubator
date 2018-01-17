@@ -76,46 +76,12 @@ public class Explain extends Prepared {
         if (maxrows >= 0) {
             String plan;
             if (executeCommand) {
-                Store mvStore = null;
-                if (db.isPersistent()) {
-                    mvStore = db.getMvStore();
-                    if (mvStore != null) {
-                        mvStore.statisticsStart();
-                    }
-                }
                 if (command.isQuery()) {
                     command.query(maxrows);
                 } else {
                     command.update();
                 }
-                plan = command.getPlanSQL();
-                Map<String, Integer> statistics = null;
-                if (mvStore != null) {
-                    statistics = mvStore.statisticsEnd();
-                }
-                if (statistics != null) {
-                    int total = 0;
-                    for (Entry<String, Integer> e : statistics.entrySet()) {
-                        total += e.getValue();
-                    }
-                    if (total > 0) {
-                        statistics = new TreeMap<String, Integer>(statistics);
-                        StringBuilder buff = new StringBuilder();
-                        if (statistics.size() > 1) {
-                            buff.append("total: ").append(total).append('\n');
-                        }
-                        for (Entry<String, Integer> e : statistics.entrySet()) {
-                            int value = e.getValue();
-                            int percent = (int) (100L * value / total);
-                            buff.append(e.getKey()).append(": ").append(value);
-                            if (statistics.size() > 1) {
-                                buff.append(" (").append(percent).append("%)");
-                            }
-                            buff.append('\n');
-                        }
-                        plan += "\n/*\n" + buff.toString() + "*/";
-                    }
-                }
+                plan = command.getPlanSQL(); 
             } else {
                 plan = command.getPlanSQL();
             }

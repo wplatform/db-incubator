@@ -104,9 +104,6 @@ public class CreateTable extends SchemaCommand {
             session.commit(true);
         }
         Database db = session.getDatabase();
-        if (!db.isPersistent()) {
-            data.persistIndexes = false;
-        }
         boolean isSessionTemporary = data.temporary && !data.globalTemporary;
         if (!isSessionTemporary) {
             db.lockMeta(session);

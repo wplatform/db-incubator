@@ -343,7 +343,6 @@ public abstract class Prepared {
             checkCanceled();
         }
         this.currentRowNumber = rowNumber;
-        setProgress();
     }
 
     /**
@@ -353,17 +352,6 @@ public abstract class Prepared {
      */
     public int getCurrentRowNumber() {
         return currentRowNumber;
-    }
-
-    /**
-     * Notifies query progress via the DatabaseEventListener
-     */
-    private void setProgress() {
-        if ((currentRowNumber & 127) == 0) {
-            session.getDatabase().setProgress(
-                    DatabaseEventListener.STATE_STATEMENT_PROGRESS,
-                    sqlStatement, currentRowNumber, 0);
-        }
     }
 
     /**

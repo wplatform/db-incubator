@@ -66,11 +66,7 @@ public class LocalResult implements ResultInterface, ResultTarget {
             this.maxMemoryRows = Integer.MAX_VALUE;
         } else {
             Database db = session.getDatabase();
-            if (db.isPersistent() && !db.isReadOnly()) {
-                this.maxMemoryRows = session.getDatabase().getMaxMemoryRows();
-            } else {
-                this.maxMemoryRows = Integer.MAX_VALUE;
-            }
+            this.maxMemoryRows = session.getDatabase().getMaxMemoryRows();
         }
         rows = New.arrayList();
         this.visibleColumnCount = visibleColumnCount;

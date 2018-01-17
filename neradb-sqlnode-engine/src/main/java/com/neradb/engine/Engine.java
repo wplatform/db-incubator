@@ -97,11 +97,6 @@ public class Engine implements SessionFactory {
                     }
                 }
             }
-            if (opened && (user == null || !user.isAdmin())) {
-                // reset - because the user is not an admin, and has no
-                // right to listen to exceptions
-                database.setEventListener(null);
-            }
         }
         if (user == null) {
             DbException er = DbException.get(ErrorCode.WRONG_USER_OR_PASSWORD);

@@ -39,7 +39,7 @@ public class DropDatabase extends DefineCommand {
             dropAllObjects();
         }
         if (deleteFiles) {
-            session.getDatabase().setDeleteFilesOnDisconnect(true);
+
         }
         return 0;
     }

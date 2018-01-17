@@ -33,13 +33,13 @@ public class MetaRecord implements Comparable<MetaRecord> {
         sql = r.getValue(3).getString();
     }
 
-    MetaRecord(DbObject obj) {
+    public MetaRecord(DbObject obj) {
         id = obj.getId();
         objectType = obj.getType();
         sql = obj.getCreateSQL();
     }
 
-    void setRecord(SearchRow r) {
+    public void setRecord(SearchRow r) {
         r.setValue(0, ValueInt.get(id));
         r.setValue(1, ValueInt.get(0));
         r.setValue(2, ValueInt.get(objectType));
@@ -53,8 +53,7 @@ public class MetaRecord implements Comparable<MetaRecord> {
      * @param systemSession the system session
      * @param listener the database event listener
      */
-    void execute(Database db, Session systemSession,
-            DatabaseEventListener listener) {
+    public void execute(Database db, Session systemSession) {
         try {
             Prepared command = systemSession.prepare(sql);
             command.setObjectId(id);
@@ -63,12 +62,7 @@ public class MetaRecord implements Comparable<MetaRecord> {
             e = e.addSQL(sql);
             SQLException s = e.getSQLException();
             db.getTrace(Trace.DATABASE).error(s, sql);
-            if (listener != null) {
-                listener.exceptionThrown(s, sql);
-                // continue startup in this case
-            } else {
-                throw e;
-            }
+            throw e;
         }
     }
 

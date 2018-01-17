@@ -95,25 +95,21 @@ public class CommandContainer extends Command {
     @Override
     public int update() {
         recompileIfRequired();
-        setProgress(DatabaseEventListener.STATE_STATEMENT_START);
         start();
         session.setLastScopeIdentity(ValueNull.INSTANCE);
         prepared.checkParameters();
         int updateCount = prepared.update();
         prepared.trace(startTimeNanos, updateCount);
-        setProgress(DatabaseEventListener.STATE_STATEMENT_END);
         return updateCount;
     }
 
     @Override
     public ResultInterface query(int maxrows) {
         recompileIfRequired();
-        setProgress(DatabaseEventListener.STATE_STATEMENT_START);
         start();
         prepared.checkParameters();
         ResultInterface result = prepared.query(maxrows);
         prepared.trace(startTimeNanos, result.isLazy() ? 0 : result.getRowCount());
-        setProgress(DatabaseEventListener.STATE_STATEMENT_END);
         return result;
     }
 

@@ -61,7 +61,7 @@ public class CreateIndex extends SchemaCommand {
             session.commit(true);
         }
         Database db = session.getDatabase();
-        boolean persistent = db.isPersistent();
+        boolean persistent = true;
         Table table = getSchema().findTableOrView(session, tableName);
         if (table == null) {
             if (ifTableExists) {

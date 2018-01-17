@@ -84,15 +84,7 @@ public class Set extends Prepared {
             addOrUpdateSetting(name, null, value);
             break;
         }
-        case SetTypes.CACHE_SIZE:
-            if (getIntValue() < 0) {
-                throw DbException.getInvalidValueException("CACHE_SIZE",
-                        getIntValue());
-            }
-            session.getUser().checkAdmin();
-            database.setCacheSize(getIntValue());
-            addOrUpdateSetting(name, null, getIntValue());
-            break;
+ 
         case SetTypes.CLUSTER: {
             if (Constants.CLUSTERING_ENABLED.equals(stringValue)) {
                 // this value is used when connecting
@@ -198,25 +190,7 @@ public class Set extends Prepared {
             }
             break;
         }
-        case SetTypes.DATABASE_EVENT_LISTENER: {
-            session.getUser().checkAdmin();
-            database.setEventListenerClass(stringValue);
-            break;
-        }
-        case SetTypes.DB_CLOSE_DELAY: {
-            int x = getIntValue();
-            if (x == -1) {
-                // -1 is a special value for in-memory databases,
-                // which means "keep the DB alive and use the same
-                // DB for all connections"
-            } else if (x < 0) {
-                throw DbException.getInvalidValueException("DB_CLOSE_DELAY", x);
-            }
-            session.getUser().checkAdmin();
-            database.setCloseDelay(getIntValue());
-            addOrUpdateSetting(name, null, getIntValue());
-            break;
-        }
+ 
         case SetTypes.DEFAULT_LOCK_TIMEOUT:
             if (getIntValue() < 0) {
                 throw DbException.getInvalidValueException(
@@ -277,14 +251,7 @@ public class Set extends Prepared {
             }
             session.setLockTimeout(getIntValue());
             break;
-        case SetTypes.LOG: {
-            int value = getIntValue();
-            if (database.isPersistent() && value != database.getLogMode()) {
-                session.getUser().checkAdmin();
-                database.setLogMode(value);
-            }
-            break;
-        }
+ 
         case SetTypes.MAX_LENGTH_INPLACE_LOB: {
             if (getIntValue() < 0) {
                 throw DbException.getInvalidValueException(
@@ -295,15 +262,6 @@ public class Set extends Prepared {
             addOrUpdateSetting(name, null, getIntValue());
             break;
         }
-        case SetTypes.MAX_LOG_SIZE:
-            if (getIntValue() < 0) {
-                throw DbException.getInvalidValueException("MAX_LOG_SIZE",
-                        getIntValue());
-            }
-            session.getUser().checkAdmin();
-            database.setMaxLogSize((long) getIntValue() * 1024 * 1024);
-            addOrUpdateSetting(name, null, getIntValue());
-            break;
         case SetTypes.MAX_MEMORY_ROWS: {
             if (getIntValue() < 0) {
                 throw DbException.getInvalidValueException("MAX_MEMORY_ROWS",
@@ -463,26 +421,6 @@ public class Set extends Prepared {
         case SetTypes.VARIABLE: {
             Expression expr = expression.optimize(session);
             session.setVariable(stringValue, expr.getValue(session));
-            break;
-        }
-        case SetTypes.WRITE_DELAY: {
-            if (getIntValue() < 0) {
-                throw DbException.getInvalidValueException("WRITE_DELAY",
-                        getIntValue());
-            }
-            session.getUser().checkAdmin();
-            database.setWriteDelay(getIntValue());
-            addOrUpdateSetting(name, null, getIntValue());
-            break;
-        }
-        case SetTypes.RETENTION_TIME: {
-            if (getIntValue() < 0) {
-                throw DbException.getInvalidValueException("RETENTION_TIME",
-                        getIntValue());
-            }
-            session.getUser().checkAdmin();
-            database.setRetentionTime(getIntValue());
-            addOrUpdateSetting(name, null, getIntValue());
             break;
         }
         case SetTypes.ROW_FACTORY: {

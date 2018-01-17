@@ -48,10 +48,7 @@ public class TransactionCommand extends Prepared {
         case CommandInterface.ROLLBACK:
             session.rollback();
             break;
-        case CommandInterface.CHECKPOINT:
-            session.getUser().checkAdmin();
-            session.getDatabase().checkpoint();
-            break;
+ 
         case CommandInterface.SAVEPOINT:
             session.addSavepoint(savepointName);
             break;
@@ -87,8 +84,7 @@ public class TransactionCommand extends Prepared {
                 session.getDatabase().setCompactMode(type);
             }
             // close the database, but don't update the persistent setting
-            session.getDatabase().setCloseDelay(0);
-            Database db = session.getDatabase();
+             Database db = session.getDatabase();
             // throttle, to allow testing concurrent
             // execution of shutdown and query
             session.throttle();

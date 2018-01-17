@@ -131,10 +131,6 @@ public abstract class Command implements CommandInterface {
         }
     }
 
-    void setProgress(int state) {
-        session.getDatabase().setProgress(state, sql, 0, 0);
-    }
-
     /**
      * Check if this command has been canceled, and throw an exception if yes.
      *

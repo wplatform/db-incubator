@@ -40,7 +40,6 @@ import com.neradb.engine.ConnectionInfo;
 import com.neradb.engine.Constants;
 import com.neradb.engine.Mode;
 import com.neradb.engine.SessionInterface;
-import com.neradb.engine.SessionRemote;
 import com.neradb.engine.SysProperties;
 import com.neradb.message.DbException;
 import com.neradb.message.TraceObject;
@@ -1515,23 +1514,6 @@ public class JdbcConnection extends TraceObject implements Connection,
     private void rollbackInternal() {
         rollback = prepareCommand("ROLLBACK", rollback);
         rollback.executeUpdate();
-    }
-
-    /**
-     * INTERNAL
-     */
-    public int getPowerOffCount() {
-        return (session == null || session.isClosed()) ?
-                0 : session.getPowerOffCount();
-    }
-
-    /**
-     * INTERNAL
-     */
-    public void setPowerOffCount(int count) {
-        if (session != null) {
-            session.setPowerOffCount(count);
-        }
     }
 
     /**

@@ -77,7 +77,7 @@ import com.neradb.value.ValueTimestampTimeZone;
  * changes are visible, but not own inserts and deletes.
  * </p>
  */
-public class JdbcResultSet extends TraceObject implements ResultSet, JdbcResultSetBackwardsCompat {
+public class JdbcResultSet extends TraceObject implements ResultSet {
 
     private final boolean closeStatement;
     private final boolean scrollable;
@@ -3801,8 +3801,6 @@ public class JdbcResultSet extends TraceObject implements ResultSet, JdbcResultS
             int id = getNextId(TraceObject.ARRAY);
             return type.cast(value == ValueNull.INSTANCE ? null : new JdbcArray(conn, value, id));
         } else if (type == TimestampWithTimeZone.class) {
-            return type.cast(value.getObject());
-        } else if (DataType.isGeometryClass(type)) {
             return type.cast(value.getObject());
         } else if (LocalDateTimeUtils.isLocalDate(type)) {
             return type.cast(LocalDateTimeUtils.valueToLocalDate(value));
