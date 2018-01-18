@@ -5,7 +5,7 @@
  * Iso8601:
  * Initial Developer: Robert Rathsack (firstName dot lastName at gmx dot de)
  */
-package com.neradb.util;
+package com.neradb.common.utils;
 
 import java.io.Closeable;
 import java.io.PrintWriter;

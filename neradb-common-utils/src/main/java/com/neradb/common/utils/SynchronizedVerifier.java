@@ -3,7 +3,7 @@
  * and the EPL 1.0 (http://h2database.com/html/license.html).
  * Initial Developer: H2 Group
  */
-package com.neradb.util;
+package com.neradb.common.utils;
 
 import java.util.Collections;
 import java.util.HashMap;
