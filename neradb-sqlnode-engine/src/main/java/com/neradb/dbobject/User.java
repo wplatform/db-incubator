@@ -188,7 +188,7 @@ public class User extends RightOwner {
      * @param userPasswordHash the password data (the user password hash)
      * @return true if the user password hash is correct
      */
-    boolean validateUserPasswordHash(byte[] userPasswordHash) {
+    public boolean validateUserPasswordHash(byte[] userPasswordHash) {
         if (userPasswordHash.length == 0 && passwordHash.length == 0) {
             return true;
         }

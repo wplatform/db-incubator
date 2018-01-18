@@ -342,7 +342,7 @@ public class Database implements DataHandler {
 	 *            the hash code
 	 * @return true if the cipher algorithm and the password match
 	 */
-	boolean validateFilePasswordHash(String testCipher, byte[] testHash) {
+	public boolean validateFilePasswordHash(String testCipher, byte[] testHash) {
 		if (!StringUtils.equals(testCipher, this.cipher)) {
 			return false;
 		}
@@ -762,7 +762,7 @@ public class Database implements DataHandler {
 	 * @throws DbException
 	 *             if the database is in exclusive mode
 	 */
-	synchronized Session createSession(User user) {
+	public synchronized Session createSession(User user) {
 		if (closing) {
 			throw DbException.get(ErrorCode.DATABASE_IS_CLOSED);
 		}
