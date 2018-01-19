@@ -1,2 +1,4 @@
-# a distributed relational database system
+# 分布式关系型数据库的实现
+
+
 
