@@ -49,13 +49,12 @@
 	</licenses>
 
 	<modules>
-		<module>neradb-common-utils</module>
-		<module>neradb-sqlnode-engine</module>
-        <module>neradb-sqlnode-server</module>
-		<module>neradb-datanode-engine</module>
-		<module>neradb-datanode-server</module>
-		<module>neradb-embedded-jdbc</module>
-		<module>neradb-meta-server</module>
+		<module>neradb-common</module>
+		<module>neradb-engine</module>
+        <module>neradb-server</module>
+		<module>neradb-metaserver</module>
+ 		<module>neradb-jdbc</module>
+		<module>neradb-tests</module>
   </modules>
 
 	<dependencyManagement>
