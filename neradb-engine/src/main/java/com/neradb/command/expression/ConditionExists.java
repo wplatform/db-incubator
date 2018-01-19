@@ -6,11 +6,11 @@
 package com.neradb.command.expression;
 
 import com.neradb.command.dml.Query;
+import com.neradb.common.utils.StringUtils;
 import com.neradb.dbobject.table.ColumnResolver;
 import com.neradb.dbobject.table.TableFilter;
 import com.neradb.engine.Session;
 import com.neradb.result.ResultInterface;
-import com.neradb.util.StringUtils;
 import com.neradb.value.Value;
 import com.neradb.value.ValueBoolean;
 

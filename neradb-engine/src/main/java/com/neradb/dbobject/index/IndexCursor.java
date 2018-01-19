@@ -9,12 +9,12 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 import com.neradb.command.expression.Comparison;
+import com.neradb.common.DbException;
 import com.neradb.dbobject.table.Column;
 import com.neradb.dbobject.table.IndexColumn;
 import com.neradb.dbobject.table.Table;
 import com.neradb.dbobject.table.TableFilter;
 import com.neradb.engine.Session;
-import com.neradb.message.DbException;
 import com.neradb.result.ResultInterface;
 import com.neradb.result.Row;
 import com.neradb.result.SearchRow;

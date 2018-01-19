@@ -9,12 +9,15 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 
-import com.neradb.api.ErrorCode;
 import com.neradb.command.CommandInterface;
 import com.neradb.command.Parser;
 import com.neradb.command.Prepared;
 import com.neradb.command.expression.Expression;
 import com.neradb.command.expression.ExpressionVisitor;
+import com.neradb.common.Constants;
+import com.neradb.common.DbException;
+import com.neradb.common.ErrorCode;
+import com.neradb.common.utils.New;
 import com.neradb.dbobject.Database;
 import com.neradb.dbobject.DbObject;
 import com.neradb.dbobject.Right;
@@ -29,11 +32,8 @@ import com.neradb.dbobject.schema.TriggerObject;
 import com.neradb.dbobject.table.Column;
 import com.neradb.dbobject.table.Table;
 import com.neradb.dbobject.table.TableView;
-import com.neradb.engine.Constants;
 import com.neradb.engine.Session;
-import com.neradb.message.DbException;
 import com.neradb.result.ResultInterface;
-import com.neradb.util.New;
 
 /**
  * This class represents the statements

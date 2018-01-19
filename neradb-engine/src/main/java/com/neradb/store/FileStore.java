@@ -11,12 +11,11 @@ import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.Arrays;
 
-import com.neradb.api.ErrorCode;
-import com.neradb.engine.Constants;
-import com.neradb.engine.SysProperties;
-import com.neradb.message.DbException;
-import com.neradb.security.SecureFileStore;
-import com.neradb.store.fs.FileUtils;
+import com.neradb.common.Constants;
+import com.neradb.common.DbException;
+import com.neradb.common.ErrorCode;
+import com.neradb.common.SysProperties;
+import com.neradb.common.io.FileUtils;
 
 /**
  * This class is an abstraction of a random access file.

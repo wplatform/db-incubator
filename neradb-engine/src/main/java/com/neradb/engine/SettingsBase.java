@@ -7,9 +7,9 @@ package com.neradb.engine;
 
 import java.util.HashMap;
 
-import com.neradb.api.ErrorCode;
-import com.neradb.message.DbException;
-import com.neradb.util.Utils;
+import com.neradb.common.DbException;
+import com.neradb.common.ErrorCode;
+import com.neradb.common.utils.Utils;
 
 /**
  * The base class for settings.

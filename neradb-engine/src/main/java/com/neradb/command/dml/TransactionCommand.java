@@ -7,9 +7,9 @@ package com.neradb.command.dml;
 
 import com.neradb.command.CommandInterface;
 import com.neradb.command.Prepared;
+import com.neradb.common.DbException;
 import com.neradb.dbobject.Database;
 import com.neradb.engine.Session;
-import com.neradb.message.DbException;
 import com.neradb.result.ResultInterface;
 
 /**

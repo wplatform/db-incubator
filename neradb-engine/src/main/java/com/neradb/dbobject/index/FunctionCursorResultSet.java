@@ -9,8 +9,8 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
+import com.neradb.common.DbException;
 import com.neradb.engine.Session;
-import com.neradb.message.DbException;
 import com.neradb.result.Row;
 import com.neradb.result.SearchRow;
 import com.neradb.value.DataType;

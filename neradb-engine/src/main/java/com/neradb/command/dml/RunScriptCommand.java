@@ -12,11 +12,11 @@ import java.nio.charset.Charset;
 
 import com.neradb.command.CommandInterface;
 import com.neradb.command.Prepared;
-import com.neradb.engine.Constants;
+import com.neradb.common.Constants;
+import com.neradb.common.DbException;
+import com.neradb.common.utils.ScriptReader;
 import com.neradb.engine.Session;
-import com.neradb.message.DbException;
 import com.neradb.result.ResultInterface;
-import com.neradb.util.ScriptReader;
 
 /**
  * This class represents the statement

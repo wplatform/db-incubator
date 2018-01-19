@@ -7,11 +7,10 @@ package com.neradb.engine;
 
 import java.sql.SQLException;
 
-import com.neradb.api.DatabaseEventListener;
 import com.neradb.command.Prepared;
+import com.neradb.common.DbException;
 import com.neradb.dbobject.Database;
 import com.neradb.dbobject.DbObject;
-import com.neradb.message.DbException;
 import com.neradb.message.Trace;
 import com.neradb.result.SearchRow;
 import com.neradb.value.ValueInt;

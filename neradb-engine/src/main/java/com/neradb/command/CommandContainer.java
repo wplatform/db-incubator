@@ -7,7 +7,6 @@ package com.neradb.command;
 
 import java.util.ArrayList;
 
-import com.neradb.api.DatabaseEventListener;
 import com.neradb.command.dml.Explain;
 import com.neradb.command.dml.Query;
 import com.neradb.command.expression.Parameter;

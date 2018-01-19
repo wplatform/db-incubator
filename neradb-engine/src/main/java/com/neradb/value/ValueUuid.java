@@ -9,11 +9,12 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.UUID;
 
-import com.neradb.api.ErrorCode;
-import com.neradb.message.DbException;
-import com.neradb.util.MathUtils;
-import com.neradb.util.StringUtils;
-import com.neradb.util.Utils;
+import com.neradb.common.DbException;
+import com.neradb.common.ErrorCode;
+import com.neradb.common.utils.MathUtils;
+import com.neradb.common.utils.StringUtils;
+import com.neradb.common.utils.Utils;
+import com.neradb.util.CompareMode;
 
 /**
  * Implementation of the UUID data type.

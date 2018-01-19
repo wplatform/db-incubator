@@ -7,26 +7,26 @@ package com.neradb.command.dml;
 
 import java.text.Collator;
 
-import com.neradb.api.ErrorCode;
 import com.neradb.command.CommandInterface;
 import com.neradb.command.Prepared;
 import com.neradb.command.expression.Expression;
 import com.neradb.command.expression.ValueExpression;
-import com.neradb.compress.Compressor;
+import com.neradb.common.Constants;
+import com.neradb.common.DbException;
+import com.neradb.common.ErrorCode;
+import com.neradb.common.compress.CompressTool;
+import com.neradb.common.compress.Compressor;
+import com.neradb.common.utils.StringUtils;
 import com.neradb.dbobject.Database;
 import com.neradb.dbobject.Setting;
 import com.neradb.dbobject.schema.Schema;
 import com.neradb.dbobject.table.Table;
-import com.neradb.engine.Constants;
 import com.neradb.engine.Mode;
 import com.neradb.engine.Session;
-import com.neradb.message.DbException;
 import com.neradb.result.ResultInterface;
 import com.neradb.result.RowFactory;
-import com.neradb.tools.CompressTool;
+import com.neradb.util.CompareMode;
 import com.neradb.util.JdbcUtils;
-import com.neradb.util.StringUtils;
-import com.neradb.value.CompareMode;
 import com.neradb.value.ValueInt;
 
 /**

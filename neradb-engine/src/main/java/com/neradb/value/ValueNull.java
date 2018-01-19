@@ -14,7 +14,8 @@ import java.sql.SQLException;
 import java.sql.Time;
 import java.sql.Timestamp;
 
-import com.neradb.message.DbException;
+import com.neradb.common.DbException;
+import com.neradb.util.CompareMode;
 
 /**
  * Implementation of NULL. NULL is not a regular data type.

@@ -7,7 +7,7 @@ package com.neradb.command.dml;
 
 import java.util.ArrayList;
 
-import com.neradb.util.New;
+import com.neradb.common.utils.New;
 
 /**
  * The list of setting for a SET statement.

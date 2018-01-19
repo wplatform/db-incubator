@@ -12,10 +12,10 @@ import java.util.HashSet;
 
 import com.neradb.command.expression.Expression;
 import com.neradb.command.expression.ExpressionVisitor;
+import com.neradb.common.utils.New;
 import com.neradb.dbobject.table.TableFilter.TableFilterVisitor;
 import com.neradb.engine.Session;
 import com.neradb.message.Trace;
-import com.neradb.util.New;
 
 /**
  * A possible query execution plan. The time required to execute a query depends

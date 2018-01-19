@@ -8,7 +8,8 @@ package com.neradb.value;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import com.neradb.util.MathUtils;
+import com.neradb.common.utils.MathUtils;
+import com.neradb.util.CompareMode;
 
 /**
  * Base implementation of the ENUM data type.

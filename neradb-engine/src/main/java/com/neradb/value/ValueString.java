@@ -8,9 +8,10 @@ package com.neradb.value;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import com.neradb.engine.SysProperties;
-import com.neradb.util.MathUtils;
-import com.neradb.util.StringUtils;
+import com.neradb.common.SysProperties;
+import com.neradb.common.utils.MathUtils;
+import com.neradb.common.utils.StringUtils;
+import com.neradb.util.CompareMode;
 
 /**
  * Implementation of the VARCHAR data type.

@@ -10,7 +10,6 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
 
-import com.neradb.api.ErrorCode;
 import com.neradb.command.Prepared;
 import com.neradb.command.dml.Query;
 import com.neradb.command.expression.Alias;
@@ -18,6 +17,12 @@ import com.neradb.command.expression.Expression;
 import com.neradb.command.expression.ExpressionColumn;
 import com.neradb.command.expression.ExpressionVisitor;
 import com.neradb.command.expression.Parameter;
+import com.neradb.common.Constants;
+import com.neradb.common.DbException;
+import com.neradb.common.ErrorCode;
+import com.neradb.common.utils.New;
+import com.neradb.common.utils.StatementBuilder;
+import com.neradb.common.utils.StringUtils;
 import com.neradb.dbobject.Database;
 import com.neradb.dbobject.DbObject;
 import com.neradb.dbobject.User;
@@ -25,15 +30,10 @@ import com.neradb.dbobject.index.Index;
 import com.neradb.dbobject.index.IndexType;
 import com.neradb.dbobject.index.ViewIndex;
 import com.neradb.dbobject.schema.Schema;
-import com.neradb.engine.Constants;
 import com.neradb.engine.Session;
-import com.neradb.message.DbException;
 import com.neradb.result.ResultInterface;
 import com.neradb.result.Row;
 import com.neradb.result.SortOrder;
-import com.neradb.util.New;
-import com.neradb.util.StatementBuilder;
-import com.neradb.util.StringUtils;
 import com.neradb.value.Value;
 
 /**

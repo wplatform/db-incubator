@@ -7,12 +7,12 @@ package com.neradb.command.expression;
 
 import java.util.ArrayList;
 
+import com.neradb.common.utils.StatementBuilder;
 import com.neradb.dbobject.Database;
 import com.neradb.dbobject.index.IndexCondition;
 import com.neradb.dbobject.table.ColumnResolver;
 import com.neradb.dbobject.table.TableFilter;
 import com.neradb.engine.Session;
-import com.neradb.util.StatementBuilder;
 import com.neradb.value.Value;
 import com.neradb.value.ValueBoolean;
 import com.neradb.value.ValueNull;

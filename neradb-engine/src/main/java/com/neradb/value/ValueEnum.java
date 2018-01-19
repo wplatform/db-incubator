@@ -7,9 +7,10 @@ package com.neradb.value;
 
 import java.util.Locale;
 
-import com.neradb.api.ErrorCode;
-import com.neradb.message.DbException;
-import com.neradb.util.MathUtils;
+import com.neradb.common.DbException;
+import com.neradb.common.ErrorCode;
+import com.neradb.common.utils.MathUtils;
+import com.neradb.util.CompareMode;
 
 public class ValueEnum extends ValueEnumBase {
     private static enum Validation {

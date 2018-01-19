@@ -8,22 +8,22 @@ package com.neradb.dbobject;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import com.neradb.api.ErrorCode;
+import com.neradb.common.Constants;
+import com.neradb.common.DbException;
+import com.neradb.common.ErrorCode;
+import com.neradb.common.security.SHA256;
+import com.neradb.common.utils.MathUtils;
+import com.neradb.common.utils.New;
+import com.neradb.common.utils.StringUtils;
+import com.neradb.common.utils.Utils;
 import com.neradb.dbobject.schema.Schema;
 import com.neradb.dbobject.table.MetaTable;
 import com.neradb.dbobject.table.RangeTable;
 import com.neradb.dbobject.table.Table;
 import com.neradb.dbobject.table.TableType;
 import com.neradb.dbobject.table.TableView;
-import com.neradb.engine.Constants;
 import com.neradb.engine.Session;
-import com.neradb.message.DbException;
 import com.neradb.message.Trace;
-import com.neradb.security.SHA256;
-import com.neradb.util.MathUtils;
-import com.neradb.util.New;
-import com.neradb.util.StringUtils;
-import com.neradb.util.Utils;
 
 /**
  * Represents a user object.

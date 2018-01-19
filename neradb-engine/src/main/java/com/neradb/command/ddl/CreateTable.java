@@ -8,12 +8,15 @@ package com.neradb.command.ddl;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-import com.neradb.api.ErrorCode;
 import com.neradb.command.CommandInterface;
 import com.neradb.command.dml.Insert;
 import com.neradb.command.dml.Query;
 import com.neradb.command.expression.Expression;
 import com.neradb.command.expression.ExpressionColumn;
+import com.neradb.common.Constants;
+import com.neradb.common.DbException;
+import com.neradb.common.ErrorCode;
+import com.neradb.common.utils.New;
 import com.neradb.dbobject.Database;
 import com.neradb.dbobject.DbObject;
 import com.neradb.dbobject.schema.Schema;
@@ -21,10 +24,7 @@ import com.neradb.dbobject.schema.Sequence;
 import com.neradb.dbobject.table.Column;
 import com.neradb.dbobject.table.IndexColumn;
 import com.neradb.dbobject.table.Table;
-import com.neradb.engine.Constants;
 import com.neradb.engine.Session;
-import com.neradb.message.DbException;
-import com.neradb.util.New;
 import com.neradb.value.DataType;
 import com.neradb.value.Value;
 

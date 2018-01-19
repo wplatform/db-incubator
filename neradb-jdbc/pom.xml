@@ -23,7 +23,7 @@
 
 		<dependency>
 			<groupId>com.neradb</groupId>
-			<artifactId>neradb-project</artifactId>
+			<artifactId>neradb-engine</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 

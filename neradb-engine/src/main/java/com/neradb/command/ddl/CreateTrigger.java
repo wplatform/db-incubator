@@ -5,15 +5,15 @@
  */
 package com.neradb.command.ddl;
 
-import com.neradb.api.ErrorCode;
-import com.neradb.api.Trigger;
 import com.neradb.command.CommandInterface;
+import com.neradb.common.DbException;
+import com.neradb.common.ErrorCode;
 import com.neradb.dbobject.Database;
 import com.neradb.dbobject.schema.Schema;
 import com.neradb.dbobject.schema.TriggerObject;
 import com.neradb.dbobject.table.Table;
 import com.neradb.engine.Session;
-import com.neradb.message.DbException;
+import com.neradb.engine.spi.Trigger;
 
 /**
  * This class represents the statement

@@ -8,14 +8,14 @@ package com.neradb.command.expression;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
-import com.neradb.api.ErrorCode;
+import com.neradb.common.DbException;
+import com.neradb.common.ErrorCode;
 import com.neradb.dbobject.Database;
 import com.neradb.dbobject.index.IndexCondition;
 import com.neradb.dbobject.table.ColumnResolver;
 import com.neradb.dbobject.table.TableFilter;
 import com.neradb.engine.Session;
-import com.neradb.message.DbException;
-import com.neradb.value.CompareMode;
+import com.neradb.util.CompareMode;
 import com.neradb.value.Value;
 import com.neradb.value.ValueBoolean;
 import com.neradb.value.ValueNull;

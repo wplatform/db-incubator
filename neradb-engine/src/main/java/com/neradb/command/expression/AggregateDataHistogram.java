@@ -8,10 +8,10 @@ package com.neradb.command.expression;
 import java.util.Arrays;
 import java.util.Comparator;
 
+import com.neradb.common.Constants;
 import com.neradb.dbobject.Database;
-import com.neradb.engine.Constants;
+import com.neradb.util.CompareMode;
 import com.neradb.util.ValueHashMap;
-import com.neradb.value.CompareMode;
 import com.neradb.value.Value;
 import com.neradb.value.ValueArray;
 import com.neradb.value.ValueLong;

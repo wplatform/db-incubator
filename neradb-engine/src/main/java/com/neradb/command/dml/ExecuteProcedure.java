@@ -11,10 +11,10 @@ import com.neradb.command.CommandInterface;
 import com.neradb.command.Prepared;
 import com.neradb.command.expression.Expression;
 import com.neradb.command.expression.Parameter;
+import com.neradb.common.utils.New;
 import com.neradb.engine.Procedure;
 import com.neradb.engine.Session;
 import com.neradb.result.ResultInterface;
-import com.neradb.util.New;
 
 /**
  * This class represents the statement

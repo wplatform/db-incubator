@@ -10,6 +10,7 @@ import java.util.Arrays;
 
 import com.neradb.command.ddl.CreateTableData;
 import com.neradb.command.expression.Expression;
+import com.neradb.common.Constants;
 import com.neradb.dbobject.Database;
 import com.neradb.dbobject.index.Cursor;
 import com.neradb.dbobject.index.Index;
@@ -18,7 +19,6 @@ import com.neradb.dbobject.schema.Schema;
 import com.neradb.dbobject.table.Column;
 import com.neradb.dbobject.table.IndexColumn;
 import com.neradb.dbobject.table.Table;
-import com.neradb.engine.Constants;
 import com.neradb.engine.Session;
 import com.neradb.value.Value;
 import com.neradb.value.ValueNull;
@@ -256,19 +256,7 @@ public class ResultTempTable implements ResultExternal {
             } else {
                 idx = table.getScanIndex(session);
             }
-            if (session.getDatabase().getMvStore() != null) {
-                // sometimes the transaction is already committed,
-                // in which case we can't use the session
-                if (idx.getRowCount(session) == 0 && rowCount > 0) {
-                    // this means querying is not transactional
-                    resultCursor = idx.find((Session) null, null, null);
-                } else {
-                    // the transaction is still open
-                    resultCursor = idx.find(session, null, null);
-                }
-            } else {
-                resultCursor = idx.find(session, null, null);
-            }
+            resultCursor = idx.find(session, null, null);
         }
         if (!resultCursor.next()) {
             return null;

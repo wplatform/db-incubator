@@ -5,11 +5,11 @@
  */
 package com.neradb.dbobject;
 
+import com.neradb.common.DbException;
+import com.neradb.common.utils.StringUtils;
 import com.neradb.dbobject.table.Table;
 import com.neradb.engine.Session;
-import com.neradb.message.DbException;
 import com.neradb.message.Trace;
-import com.neradb.util.StringUtils;
 
 /**
  * Represents a database object comment.

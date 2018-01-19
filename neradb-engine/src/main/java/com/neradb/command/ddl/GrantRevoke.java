@@ -7,8 +7,10 @@ package com.neradb.command.ddl;
 
 import java.util.ArrayList;
 
-import com.neradb.api.ErrorCode;
 import com.neradb.command.CommandInterface;
+import com.neradb.common.DbException;
+import com.neradb.common.ErrorCode;
+import com.neradb.common.utils.New;
 import com.neradb.dbobject.Database;
 import com.neradb.dbobject.DbObject;
 import com.neradb.dbobject.Right;
@@ -17,8 +19,6 @@ import com.neradb.dbobject.Role;
 import com.neradb.dbobject.schema.Schema;
 import com.neradb.dbobject.table.Table;
 import com.neradb.engine.Session;
-import com.neradb.message.DbException;
-import com.neradb.util.New;
 
 /**
  * This class represents the statements

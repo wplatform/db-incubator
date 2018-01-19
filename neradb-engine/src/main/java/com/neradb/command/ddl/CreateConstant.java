@@ -5,14 +5,14 @@
  */
 package com.neradb.command.ddl;
 
-import com.neradb.api.ErrorCode;
 import com.neradb.command.CommandInterface;
 import com.neradb.command.expression.Expression;
+import com.neradb.common.DbException;
+import com.neradb.common.ErrorCode;
 import com.neradb.dbobject.Database;
 import com.neradb.dbobject.schema.Constant;
 import com.neradb.dbobject.schema.Schema;
 import com.neradb.engine.Session;
-import com.neradb.message.DbException;
 import com.neradb.value.Value;
 
 /**

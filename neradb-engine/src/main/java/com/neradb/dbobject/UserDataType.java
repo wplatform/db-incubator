@@ -5,10 +5,10 @@
  */
 package com.neradb.dbobject;
 
+import com.neradb.common.DbException;
 import com.neradb.dbobject.table.Column;
 import com.neradb.dbobject.table.Table;
 import com.neradb.engine.Session;
-import com.neradb.message.DbException;
 import com.neradb.message.Trace;
 
 /**

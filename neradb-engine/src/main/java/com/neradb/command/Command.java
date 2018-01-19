@@ -8,15 +8,15 @@ package com.neradb.command;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.neradb.api.ErrorCode;
 import com.neradb.command.expression.ParameterInterface;
+import com.neradb.common.Constants;
+import com.neradb.common.DbException;
+import com.neradb.common.ErrorCode;
+import com.neradb.common.utils.MathUtils;
 import com.neradb.dbobject.Database;
-import com.neradb.engine.Constants;
 import com.neradb.engine.Session;
-import com.neradb.message.DbException;
 import com.neradb.message.Trace;
 import com.neradb.result.ResultInterface;
-import com.neradb.util.MathUtils;
 
 /**
  * Represents a SQL statement. This object is only used on the server side.

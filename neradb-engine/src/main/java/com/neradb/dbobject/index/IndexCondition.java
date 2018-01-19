@@ -16,13 +16,13 @@ import com.neradb.command.expression.Comparison;
 import com.neradb.command.expression.Expression;
 import com.neradb.command.expression.ExpressionColumn;
 import com.neradb.command.expression.ExpressionVisitor;
+import com.neradb.common.DbException;
+import com.neradb.common.utils.StatementBuilder;
 import com.neradb.dbobject.table.Column;
 import com.neradb.dbobject.table.TableType;
 import com.neradb.engine.Session;
-import com.neradb.message.DbException;
 import com.neradb.result.ResultInterface;
-import com.neradb.util.StatementBuilder;
-import com.neradb.value.CompareMode;
+import com.neradb.util.CompareMode;
 import com.neradb.value.Value;
 
 /**

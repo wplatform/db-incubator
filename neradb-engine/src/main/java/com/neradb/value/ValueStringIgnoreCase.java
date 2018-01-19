@@ -5,8 +5,9 @@
  */
 package com.neradb.value;
 
-import com.neradb.engine.SysProperties;
-import com.neradb.util.StringUtils;
+import com.neradb.common.SysProperties;
+import com.neradb.common.utils.StringUtils;
+import com.neradb.util.CompareMode;
 
 /**
  * Implementation of the VARCHAR_IGNORECASE data type.

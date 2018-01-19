@@ -9,9 +9,9 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 
 import com.neradb.command.expression.ParameterInterface;
-import com.neradb.engine.SysProperties;
-import com.neradb.util.StatementBuilder;
-import com.neradb.util.StringUtils;
+import com.neradb.common.SysProperties;
+import com.neradb.common.utils.StatementBuilder;
+import com.neradb.common.utils.StringUtils;
 import com.neradb.value.Value;
 
 /**

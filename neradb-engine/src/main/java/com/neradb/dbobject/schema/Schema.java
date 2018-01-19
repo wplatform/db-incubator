@@ -10,8 +10,12 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import com.neradb.api.ErrorCode;
 import com.neradb.command.ddl.CreateTableData;
+import com.neradb.common.DbException;
+import com.neradb.common.ErrorCode;
+import com.neradb.common.SysProperties;
+import com.neradb.common.utils.New;
+import com.neradb.common.utils.StringUtils;
 import com.neradb.dbobject.Database;
 import com.neradb.dbobject.DbObject;
 import com.neradb.dbobject.DbObjectBase;
@@ -22,12 +26,8 @@ import com.neradb.dbobject.table.Table;
 import com.neradb.engine.DbSettings;
 import com.neradb.engine.FunctionAlias;
 import com.neradb.engine.Session;
-import com.neradb.engine.SysProperties;
-import com.neradb.message.DbException;
 import com.neradb.message.Trace;
 import com.neradb.mvstore.db.MVTableEngine;
-import com.neradb.util.New;
-import com.neradb.util.StringUtils;
 
 /**
  * A schema as created by the SQL statement

@@ -11,27 +11,27 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import com.neradb.api.ErrorCode;
-import com.neradb.api.JavaObjectSerializer;
 import com.neradb.command.Prepared;
 import com.neradb.command.expression.Expression;
+import com.neradb.common.Constants;
+import com.neradb.common.DbException;
+import com.neradb.common.ErrorCode;
+import com.neradb.common.SysProperties;
+import com.neradb.common.compress.CompressTool;
+import com.neradb.common.io.FileUtils;
+import com.neradb.common.security.SHA256;
+import com.neradb.common.utils.IOUtils;
+import com.neradb.common.utils.SmallLRUCache;
+import com.neradb.common.utils.TempFileDeleter;
 import com.neradb.dbobject.Database;
-import com.neradb.engine.Constants;
 import com.neradb.engine.Session;
-import com.neradb.engine.SysProperties;
-import com.neradb.message.DbException;
-import com.neradb.security.SHA256;
+import com.neradb.engine.spi.JavaObjectSerializer;
 import com.neradb.store.DataHandler;
 import com.neradb.store.FileStore;
 import com.neradb.store.FileStoreInputStream;
 import com.neradb.store.FileStoreOutputStream;
-import com.neradb.store.LobStorageBackend;
-import com.neradb.store.fs.FileUtils;
-import com.neradb.tools.CompressTool;
-import com.neradb.util.IOUtils;
-import com.neradb.util.SmallLRUCache;
-import com.neradb.util.TempFileDeleter;
-import com.neradb.value.CompareMode;
+import com.neradb.store.LobStorageInterface;
+import com.neradb.util.CompareMode;
 
 /**
  * This class is the base for RunScriptCommand and ScriptCommand.
@@ -246,7 +246,7 @@ abstract class ScriptBase extends Prepared implements DataHandler {
     }
 
     @Override
-    public LobStorageBackend getLobStorage() {
+    public LobStorageInterface getLobStorage() {
         return null;
     }
 

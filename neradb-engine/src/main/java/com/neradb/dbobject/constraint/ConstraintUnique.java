@@ -8,6 +8,9 @@ package com.neradb.dbobject.constraint;
 import java.util.HashSet;
 
 import com.neradb.command.Parser;
+import com.neradb.common.utils.New;
+import com.neradb.common.utils.StatementBuilder;
+import com.neradb.common.utils.StringUtils;
 import com.neradb.dbobject.index.Index;
 import com.neradb.dbobject.schema.Schema;
 import com.neradb.dbobject.table.Column;
@@ -15,9 +18,6 @@ import com.neradb.dbobject.table.IndexColumn;
 import com.neradb.dbobject.table.Table;
 import com.neradb.engine.Session;
 import com.neradb.result.Row;
-import com.neradb.util.New;
-import com.neradb.util.StatementBuilder;
-import com.neradb.util.StringUtils;
 
 /**
  * A unique constraint. This object always backed by a unique index.

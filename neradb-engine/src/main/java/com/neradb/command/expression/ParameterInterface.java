@@ -5,7 +5,7 @@
  */
 package com.neradb.command.expression;
 
-import com.neradb.message.DbException;
+import com.neradb.common.DbException;
 import com.neradb.value.Value;
 
 /**

@@ -10,9 +10,10 @@ import java.math.BigInteger;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import com.neradb.api.ErrorCode;
-import com.neradb.message.DbException;
-import com.neradb.util.MathUtils;
+import com.neradb.common.DbException;
+import com.neradb.common.ErrorCode;
+import com.neradb.common.utils.MathUtils;
+import com.neradb.util.CompareMode;
 
 /**
  * Implementation of the BIGINT data type.

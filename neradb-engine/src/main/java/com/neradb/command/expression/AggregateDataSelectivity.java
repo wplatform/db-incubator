@@ -5,9 +5,9 @@
  */
 package com.neradb.command.expression;
 
+import com.neradb.common.Constants;
+import com.neradb.common.utils.IntIntHashMap;
 import com.neradb.dbobject.Database;
-import com.neradb.engine.Constants;
-import com.neradb.util.IntIntHashMap;
 import com.neradb.value.Value;
 import com.neradb.value.ValueInt;
 

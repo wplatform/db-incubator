@@ -6,10 +6,10 @@
 package com.neradb.dbobject.schema;
 
 import com.neradb.command.expression.ValueExpression;
+import com.neradb.common.DbException;
 import com.neradb.dbobject.DbObject;
 import com.neradb.dbobject.table.Table;
 import com.neradb.engine.Session;
-import com.neradb.message.DbException;
 import com.neradb.message.Trace;
 import com.neradb.value.Value;
 

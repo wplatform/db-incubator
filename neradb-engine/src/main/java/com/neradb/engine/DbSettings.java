@@ -7,6 +7,8 @@ package com.neradb.engine;
 
 import java.util.HashMap;
 
+import com.neradb.common.Constants;
+
 /**
  * This class contains various database-level settings. To override the
  * documented default value for a database, append the setting in the database

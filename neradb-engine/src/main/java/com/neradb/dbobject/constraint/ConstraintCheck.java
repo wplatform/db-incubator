@@ -8,20 +8,20 @@ package com.neradb.dbobject.constraint;
 import java.util.HashSet;
 import java.util.Iterator;
 
-import com.neradb.api.ErrorCode;
 import com.neradb.command.expression.Expression;
 import com.neradb.command.expression.ExpressionVisitor;
+import com.neradb.common.DbException;
+import com.neradb.common.ErrorCode;
+import com.neradb.common.utils.New;
+import com.neradb.common.utils.StringUtils;
 import com.neradb.dbobject.index.Index;
 import com.neradb.dbobject.schema.Schema;
 import com.neradb.dbobject.table.Column;
 import com.neradb.dbobject.table.Table;
 import com.neradb.dbobject.table.TableFilter;
 import com.neradb.engine.Session;
-import com.neradb.message.DbException;
 import com.neradb.result.ResultInterface;
 import com.neradb.result.Row;
-import com.neradb.util.New;
-import com.neradb.util.StringUtils;
 
 /**
  * A check constraint.

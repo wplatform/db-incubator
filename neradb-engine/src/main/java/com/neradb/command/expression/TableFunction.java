@@ -7,15 +7,15 @@ package com.neradb.command.expression;
 
 import java.util.ArrayList;
 
-import com.neradb.api.ErrorCode;
+import com.neradb.common.DbException;
+import com.neradb.common.ErrorCode;
+import com.neradb.common.utils.MathUtils;
+import com.neradb.common.utils.StatementBuilder;
 import com.neradb.dbobject.Database;
 import com.neradb.dbobject.table.Column;
 import com.neradb.engine.Session;
-import com.neradb.message.DbException;
 import com.neradb.result.LocalResult;
-import com.neradb.tools.SimpleResultSet;
-import com.neradb.util.MathUtils;
-import com.neradb.util.StatementBuilder;
+import com.neradb.result.SimpleResultSet;
 import com.neradb.value.DataType;
 import com.neradb.value.Value;
 import com.neradb.value.ValueArray;

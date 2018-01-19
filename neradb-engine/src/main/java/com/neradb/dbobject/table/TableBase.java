@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.neradb.command.ddl.CreateTableData;
+import com.neradb.common.utils.StatementBuilder;
+import com.neradb.common.utils.StringUtils;
 import com.neradb.dbobject.Database;
 import com.neradb.engine.DbSettings;
 import com.neradb.mvstore.db.MVTableEngine;
-import com.neradb.util.StatementBuilder;
-import com.neradb.util.StringUtils;
 
 /**
  * The base class of a regular table, or a user defined table.

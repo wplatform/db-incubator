@@ -14,20 +14,21 @@ import java.io.Reader;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import com.neradb.engine.Constants;
-import com.neradb.engine.SysProperties;
-import com.neradb.message.DbException;
-import com.neradb.mvstore.DataUtils;
+import com.neradb.common.Constants;
+import com.neradb.common.DbException;
+import com.neradb.common.SysProperties;
+import com.neradb.common.io.FileUtils;
+import com.neradb.common.utils.DataUtils;
+import com.neradb.common.utils.IOUtils;
+import com.neradb.common.utils.MathUtils;
+import com.neradb.common.utils.SmallLRUCache;
+import com.neradb.common.utils.StringUtils;
+import com.neradb.common.utils.Utils;
 import com.neradb.store.DataHandler;
 import com.neradb.store.FileStore;
 import com.neradb.store.FileStoreInputStream;
 import com.neradb.store.FileStoreOutputStream;
-import com.neradb.store.fs.FileUtils;
-import com.neradb.util.IOUtils;
-import com.neradb.util.MathUtils;
-import com.neradb.util.SmallLRUCache;
-import com.neradb.util.StringUtils;
-import com.neradb.util.Utils;
+import com.neradb.util.CompareMode;
 
 /**
  * Implementation of the BLOB and CLOB data types. Small objects are kept in

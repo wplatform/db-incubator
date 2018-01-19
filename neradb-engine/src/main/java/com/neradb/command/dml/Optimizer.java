@@ -9,12 +9,12 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import com.neradb.command.expression.Expression;
+import com.neradb.common.utils.BitField;
+import com.neradb.common.utils.Permutations;
 import com.neradb.dbobject.table.Plan;
 import com.neradb.dbobject.table.PlanItem;
 import com.neradb.dbobject.table.TableFilter;
 import com.neradb.engine.Session;
-import com.neradb.util.BitField;
-import com.neradb.util.Permutations;
 
 /**
  * The optimizer is responsible to find the best execution plan

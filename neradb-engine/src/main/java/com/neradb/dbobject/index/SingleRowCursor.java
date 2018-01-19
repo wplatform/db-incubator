@@ -5,7 +5,7 @@
  */
 package com.neradb.dbobject.index;
 
-import com.neradb.message.DbException;
+import com.neradb.common.DbException;
 import com.neradb.result.Row;
 import com.neradb.result.SearchRow;
 

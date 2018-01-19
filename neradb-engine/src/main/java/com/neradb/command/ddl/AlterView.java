@@ -6,10 +6,10 @@
 package com.neradb.command.ddl;
 
 import com.neradb.command.CommandInterface;
+import com.neradb.common.DbException;
 import com.neradb.dbobject.Right;
 import com.neradb.dbobject.table.TableView;
 import com.neradb.engine.Session;
-import com.neradb.message.DbException;
 
 /**
  * This class represents the statement

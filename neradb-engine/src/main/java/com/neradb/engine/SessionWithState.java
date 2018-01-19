@@ -8,8 +8,8 @@ package com.neradb.engine;
 import java.util.ArrayList;
 
 import com.neradb.command.CommandInterface;
+import com.neradb.common.utils.New;
 import com.neradb.result.ResultInterface;
-import com.neradb.util.New;
 import com.neradb.value.Value;
 
 /**

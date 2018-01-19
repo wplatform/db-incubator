@@ -12,13 +12,13 @@ import java.util.Comparator;
 import com.neradb.command.dml.SelectOrderBy;
 import com.neradb.command.expression.Expression;
 import com.neradb.command.expression.ExpressionColumn;
+import com.neradb.common.SysProperties;
+import com.neradb.common.utils.StatementBuilder;
+import com.neradb.common.utils.StringUtils;
+import com.neradb.common.utils.Utils;
 import com.neradb.dbobject.Database;
 import com.neradb.dbobject.table.Column;
 import com.neradb.dbobject.table.TableFilter;
-import com.neradb.engine.SysProperties;
-import com.neradb.util.StatementBuilder;
-import com.neradb.util.StringUtils;
-import com.neradb.util.Utils;
 import com.neradb.value.Value;
 import com.neradb.value.ValueNull;
 

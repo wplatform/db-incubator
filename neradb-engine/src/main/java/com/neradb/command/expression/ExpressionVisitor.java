@@ -7,12 +7,12 @@ package com.neradb.command.expression;
 
 import java.util.HashSet;
 
+import com.neradb.common.utils.New;
 import com.neradb.dbobject.DbObject;
 import com.neradb.dbobject.table.Column;
 import com.neradb.dbobject.table.ColumnResolver;
 import com.neradb.dbobject.table.Table;
 import com.neradb.dbobject.table.TableFilter;
-import com.neradb.util.New;
 
 /**
  * The visitor pattern is used to iterate through all expressions of a query

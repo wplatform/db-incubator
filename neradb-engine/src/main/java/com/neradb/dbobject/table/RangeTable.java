@@ -7,14 +7,14 @@ package com.neradb.dbobject.table;
 
 import java.util.ArrayList;
 
-import com.neradb.api.ErrorCode;
 import com.neradb.command.expression.Expression;
+import com.neradb.common.DbException;
+import com.neradb.common.ErrorCode;
 import com.neradb.dbobject.index.Index;
 import com.neradb.dbobject.index.IndexType;
 import com.neradb.dbobject.index.RangeIndex;
 import com.neradb.dbobject.schema.Schema;
 import com.neradb.engine.Session;
-import com.neradb.message.DbException;
 import com.neradb.result.Row;
 import com.neradb.value.Value;
 

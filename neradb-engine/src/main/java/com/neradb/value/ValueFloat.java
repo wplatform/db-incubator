@@ -8,8 +8,9 @@ package com.neradb.value;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import com.neradb.api.ErrorCode;
-import com.neradb.message.DbException;
+import com.neradb.common.DbException;
+import com.neradb.common.ErrorCode;
+import com.neradb.util.CompareMode;
 
 /**
  * Implementation of the REAL data type.

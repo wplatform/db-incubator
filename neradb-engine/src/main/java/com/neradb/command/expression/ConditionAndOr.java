@@ -5,11 +5,11 @@
  */
 package com.neradb.command.expression;
 
+import com.neradb.common.DbException;
+import com.neradb.common.SysProperties;
 import com.neradb.dbobject.table.ColumnResolver;
 import com.neradb.dbobject.table.TableFilter;
 import com.neradb.engine.Session;
-import com.neradb.engine.SysProperties;
-import com.neradb.message.DbException;
 import com.neradb.value.Value;
 import com.neradb.value.ValueBoolean;
 import com.neradb.value.ValueNull;

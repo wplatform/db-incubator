@@ -7,12 +7,12 @@ package com.neradb.dbobject.index;
 
 import java.util.HashSet;
 
+import com.neradb.common.DbException;
 import com.neradb.dbobject.table.Column;
 import com.neradb.dbobject.table.FunctionTable;
 import com.neradb.dbobject.table.IndexColumn;
 import com.neradb.dbobject.table.TableFilter;
 import com.neradb.engine.Session;
-import com.neradb.message.DbException;
 import com.neradb.result.Row;
 import com.neradb.result.SearchRow;
 import com.neradb.result.SortOrder;

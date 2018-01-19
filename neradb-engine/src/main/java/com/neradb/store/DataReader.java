@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
 
-import com.neradb.util.IOUtils;
+import com.neradb.common.utils.IOUtils;
 
 /**
  * This class is backed by an input stream and supports reading values and

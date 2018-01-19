@@ -7,24 +7,24 @@ package com.neradb.dbobject.index;
 
 import java.util.HashSet;
 
-import com.neradb.api.ErrorCode;
+import com.neradb.common.Constants;
+import com.neradb.common.DbException;
+import com.neradb.common.ErrorCode;
+import com.neradb.common.utils.MathUtils;
+import com.neradb.common.utils.StatementBuilder;
+import com.neradb.common.utils.StringUtils;
 import com.neradb.dbobject.DbObject;
 import com.neradb.dbobject.schema.SchemaObjectBase;
 import com.neradb.dbobject.table.Column;
 import com.neradb.dbobject.table.IndexColumn;
 import com.neradb.dbobject.table.Table;
 import com.neradb.dbobject.table.TableFilter;
-import com.neradb.engine.Constants;
 import com.neradb.engine.Mode;
 import com.neradb.engine.Session;
-import com.neradb.message.DbException;
 import com.neradb.message.Trace;
 import com.neradb.result.Row;
 import com.neradb.result.SearchRow;
 import com.neradb.result.SortOrder;
-import com.neradb.util.MathUtils;
-import com.neradb.util.StatementBuilder;
-import com.neradb.util.StringUtils;
 import com.neradb.value.Value;
 import com.neradb.value.ValueNull;
 

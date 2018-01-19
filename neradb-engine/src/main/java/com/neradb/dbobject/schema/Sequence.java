@@ -7,11 +7,11 @@ package com.neradb.dbobject.schema;
 
 import java.math.BigInteger;
 
-import com.neradb.api.ErrorCode;
+import com.neradb.common.DbException;
+import com.neradb.common.ErrorCode;
 import com.neradb.dbobject.DbObject;
 import com.neradb.dbobject.table.Table;
 import com.neradb.engine.Session;
-import com.neradb.message.DbException;
 import com.neradb.message.Trace;
 
 /**

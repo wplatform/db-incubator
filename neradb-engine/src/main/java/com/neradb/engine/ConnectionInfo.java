@@ -12,17 +12,19 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Properties;
 
-import com.neradb.api.ErrorCode;
 import com.neradb.command.dml.SetTypes;
-import com.neradb.message.DbException;
-import com.neradb.security.SHA256;
-import com.neradb.store.fs.FilePathEncrypt;
-import com.neradb.store.fs.FilePathRec;
-import com.neradb.store.fs.FileUtils;
-import com.neradb.util.New;
-import com.neradb.util.SortedProperties;
-import com.neradb.util.StringUtils;
-import com.neradb.util.Utils;
+import com.neradb.common.Constants;
+import com.neradb.common.DbException;
+import com.neradb.common.ErrorCode;
+import com.neradb.common.SysProperties;
+import com.neradb.common.io.FilePathEncrypt;
+import com.neradb.common.io.FilePathRec;
+import com.neradb.common.io.FileUtils;
+import com.neradb.common.security.SHA256;
+import com.neradb.common.utils.New;
+import com.neradb.common.utils.SortedProperties;
+import com.neradb.common.utils.StringUtils;
+import com.neradb.common.utils.Utils;
 
 /**
  * Encapsulates the connection settings, including user name and password.

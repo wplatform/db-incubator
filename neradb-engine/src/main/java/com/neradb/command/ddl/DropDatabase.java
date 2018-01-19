@@ -8,6 +8,7 @@ package com.neradb.command.ddl;
 import java.util.ArrayList;
 
 import com.neradb.command.CommandInterface;
+import com.neradb.common.utils.New;
 import com.neradb.dbobject.Database;
 import com.neradb.dbobject.DbObject;
 import com.neradb.dbobject.Role;
@@ -18,7 +19,6 @@ import com.neradb.dbobject.schema.Sequence;
 import com.neradb.dbobject.table.Table;
 import com.neradb.dbobject.table.TableType;
 import com.neradb.engine.Session;
-import com.neradb.util.New;
 
 /**
  * This class represents the statement

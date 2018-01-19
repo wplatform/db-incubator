@@ -13,8 +13,7 @@ import java.sql.Date;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
-import com.neradb.api.TimestampWithTimeZone;
-import com.neradb.message.DbException;
+import com.neradb.common.DbException;
 import com.neradb.value.Value;
 import com.neradb.value.ValueDate;
 import com.neradb.value.ValueTime;

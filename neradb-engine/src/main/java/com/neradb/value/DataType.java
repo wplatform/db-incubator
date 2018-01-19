@@ -24,21 +24,21 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
-import com.neradb.api.ErrorCode;
-import com.neradb.api.TimestampWithTimeZone;
-import com.neradb.engine.Constants;
+import com.neradb.common.Constants;
+import com.neradb.common.DbException;
+import com.neradb.common.ErrorCode;
+import com.neradb.common.SysProperties;
+import com.neradb.common.utils.New;
+import com.neradb.common.utils.Utils;
 import com.neradb.engine.SessionInterface;
-import com.neradb.engine.SysProperties;
 import com.neradb.jdbc.JdbcArray;
 import com.neradb.jdbc.JdbcBlob;
 import com.neradb.jdbc.JdbcClob;
 import com.neradb.jdbc.JdbcConnection;
-import com.neradb.message.DbException;
-import com.neradb.tools.SimpleResultSet;
+import com.neradb.result.SimpleResultSet;
 import com.neradb.util.JdbcUtils;
 import com.neradb.util.LocalDateTimeUtils;
-import com.neradb.util.New;
-import com.neradb.util.Utils;
+import com.neradb.util.TimestampWithTimeZone;
 
 /**
  * This class contains meta data information about data types,

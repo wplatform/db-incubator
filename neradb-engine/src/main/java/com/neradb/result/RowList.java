@@ -7,12 +7,12 @@ package com.neradb.result;
 
 import java.util.ArrayList;
 
+import com.neradb.common.Constants;
+import com.neradb.common.utils.New;
 import com.neradb.dbobject.Database;
-import com.neradb.engine.Constants;
 import com.neradb.engine.Session;
 import com.neradb.store.Data;
 import com.neradb.store.FileStore;
-import com.neradb.util.New;
 import com.neradb.value.Value;
 
 /**

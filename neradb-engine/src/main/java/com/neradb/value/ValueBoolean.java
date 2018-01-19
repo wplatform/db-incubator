@@ -8,6 +8,8 @@ package com.neradb.value;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import com.neradb.util.CompareMode;
+
 /**
  * Implementation of the BOOLEAN data type.
  */

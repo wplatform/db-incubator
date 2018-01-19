@@ -8,6 +8,7 @@ package com.neradb.dbobject.constraint;
 import java.util.HashSet;
 
 import com.neradb.command.expression.ExpressionVisitor;
+import com.neradb.common.DbException;
 import com.neradb.dbobject.DbObject;
 import com.neradb.dbobject.index.Index;
 import com.neradb.dbobject.schema.Schema;
@@ -15,7 +16,6 @@ import com.neradb.dbobject.schema.SchemaObjectBase;
 import com.neradb.dbobject.table.Column;
 import com.neradb.dbobject.table.Table;
 import com.neradb.engine.Session;
-import com.neradb.message.DbException;
 import com.neradb.message.Trace;
 import com.neradb.result.Row;
 

@@ -10,16 +10,16 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.neradb.api.ErrorCode;
 import com.neradb.command.expression.Expression;
 import com.neradb.command.expression.FunctionCall;
 import com.neradb.command.expression.TableFunction;
+import com.neradb.common.DbException;
+import com.neradb.common.ErrorCode;
 import com.neradb.dbobject.index.FunctionIndex;
 import com.neradb.dbobject.index.Index;
 import com.neradb.dbobject.index.IndexType;
 import com.neradb.dbobject.schema.Schema;
 import com.neradb.engine.Session;
-import com.neradb.message.DbException;
 import com.neradb.result.LocalResult;
 import com.neradb.result.ResultInterface;
 import com.neradb.result.Row;

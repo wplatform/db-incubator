@@ -5,21 +5,21 @@
  */
 package com.neradb.command.dml;
 
-import com.neradb.api.Trigger;
 import com.neradb.command.CommandInterface;
 import com.neradb.command.Prepared;
 import com.neradb.command.expression.Expression;
 import com.neradb.command.expression.ExpressionVisitor;
+import com.neradb.common.utils.StringUtils;
 import com.neradb.dbobject.Right;
 import com.neradb.dbobject.table.PlanItem;
 import com.neradb.dbobject.table.Table;
 import com.neradb.dbobject.table.TableFilter;
 import com.neradb.engine.Session;
 import com.neradb.engine.UndoLogRecord;
+import com.neradb.engine.spi.Trigger;
 import com.neradb.result.ResultInterface;
 import com.neradb.result.Row;
 import com.neradb.result.RowList;
-import com.neradb.util.StringUtils;
 import com.neradb.value.Value;
 import com.neradb.value.ValueNull;
 

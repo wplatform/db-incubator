@@ -8,9 +8,9 @@ package com.neradb.dbobject;
 import java.util.ArrayList;
 
 import com.neradb.command.Parser;
+import com.neradb.common.DbException;
+import com.neradb.common.SysProperties;
 import com.neradb.engine.Session;
-import com.neradb.engine.SysProperties;
-import com.neradb.message.DbException;
 import com.neradb.message.Trace;
 
 /**

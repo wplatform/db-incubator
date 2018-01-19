@@ -10,9 +10,10 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
-import com.neradb.message.DbException;
-import com.neradb.tools.SimpleResultSet;
-import com.neradb.util.StatementBuilder;
+import com.neradb.common.DbException;
+import com.neradb.common.utils.StatementBuilder;
+import com.neradb.result.SimpleResultSet;
+import com.neradb.util.CompareMode;
 
 /**
  * Implementation of the RESULT_SET data type.

@@ -7,7 +7,9 @@ package com.neradb.util;
 
 import java.util.ArrayList;
 
-import com.neradb.message.DbException;
+import com.neradb.common.DbException;
+import com.neradb.common.utils.HashBase;
+import com.neradb.common.utils.New;
 import com.neradb.value.Value;
 import com.neradb.value.ValueNull;
 

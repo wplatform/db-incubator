@@ -9,7 +9,8 @@ import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.Map;
 
-import com.neradb.util.StringUtils;
+import com.neradb.common.DbException;
+import com.neradb.common.utils.StringUtils;
 
 /**
  * The base class for objects that can print trace information about themselves.

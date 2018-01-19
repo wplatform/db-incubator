@@ -9,20 +9,20 @@ import java.lang.reflect.Method;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import com.neradb.api.ErrorCode;
-import com.neradb.api.Trigger;
 import com.neradb.command.Parser;
+import com.neradb.common.Constants;
+import com.neradb.common.DbException;
+import com.neradb.common.ErrorCode;
+import com.neradb.common.utils.SourceCompiler;
+import com.neradb.common.utils.StatementBuilder;
+import com.neradb.common.utils.StringUtils;
 import com.neradb.dbobject.DbObject;
 import com.neradb.dbobject.table.Table;
-import com.neradb.engine.Constants;
 import com.neradb.engine.Session;
-import com.neradb.message.DbException;
+import com.neradb.engine.spi.Trigger;
 import com.neradb.message.Trace;
 import com.neradb.result.Row;
 import com.neradb.util.JdbcUtils;
-import com.neradb.util.SourceCompiler;
-import com.neradb.util.StatementBuilder;
-import com.neradb.util.StringUtils;
 import com.neradb.value.DataType;
 import com.neradb.value.Value;
 

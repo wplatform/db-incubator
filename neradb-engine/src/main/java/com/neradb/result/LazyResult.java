@@ -6,8 +6,8 @@
 package com.neradb.result;
 
 import com.neradb.command.expression.Expression;
+import com.neradb.common.DbException;
 import com.neradb.engine.Session;
-import com.neradb.message.DbException;
 import com.neradb.value.Value;
 
 /**

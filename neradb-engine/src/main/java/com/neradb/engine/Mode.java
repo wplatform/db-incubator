@@ -8,8 +8,9 @@ package com.neradb.engine;
 import java.util.HashMap;
 import java.util.regex.Pattern;
 
-import com.neradb.util.New;
-import com.neradb.util.StringUtils;
+import com.neradb.common.Constants;
+import com.neradb.common.utils.New;
+import com.neradb.common.utils.StringUtils;
 
 /**
  * The compatibility modes. There is a fixed set of modes (for example

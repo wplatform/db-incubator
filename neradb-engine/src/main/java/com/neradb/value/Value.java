@@ -19,17 +19,18 @@ import java.sql.Time;
 import java.sql.Timestamp;
 import java.sql.Types;
 
-import com.neradb.api.ErrorCode;
-import com.neradb.engine.Constants;
-import com.neradb.engine.SysProperties;
-import com.neradb.message.DbException;
+import com.neradb.common.Constants;
+import com.neradb.common.DbException;
+import com.neradb.common.ErrorCode;
+import com.neradb.common.SysProperties;
+import com.neradb.common.utils.MathUtils;
+import com.neradb.common.utils.StringUtils;
+import com.neradb.common.utils.Utils;
+import com.neradb.result.SimpleResultSet;
 import com.neradb.store.DataHandler;
-import com.neradb.tools.SimpleResultSet;
+import com.neradb.util.CompareMode;
 import com.neradb.util.DateTimeUtils;
 import com.neradb.util.JdbcUtils;
-import com.neradb.util.MathUtils;
-import com.neradb.util.StringUtils;
-import com.neradb.util.Utils;
 
 /**
  * This is the base class for all value classes.

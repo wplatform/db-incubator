@@ -9,10 +9,11 @@ import java.lang.reflect.Array;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
 
-import com.neradb.engine.Constants;
-import com.neradb.util.MathUtils;
-import com.neradb.util.New;
-import com.neradb.util.StatementBuilder;
+import com.neradb.common.Constants;
+import com.neradb.common.utils.MathUtils;
+import com.neradb.common.utils.New;
+import com.neradb.common.utils.StatementBuilder;
+import com.neradb.util.CompareMode;
 
 /**
  * Implementation of the ARRAY data type.

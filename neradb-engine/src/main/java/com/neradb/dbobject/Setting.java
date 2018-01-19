@@ -5,9 +5,9 @@
  */
 package com.neradb.dbobject;
 
+import com.neradb.common.DbException;
 import com.neradb.dbobject.table.Table;
 import com.neradb.engine.Session;
-import com.neradb.message.DbException;
 import com.neradb.message.Trace;
 
 /**
@@ -15,65 +15,64 @@ import com.neradb.message.Trace;
  */
 public class Setting extends DbObjectBase {
 
-    private int intValue;
-    private String stringValue;
+	private int intValue;
+	private String stringValue;
 
-    public Setting(Database database, int id, String settingName) {
-        initDbObjectBase(database, id, settingName, Trace.SETTING);
-    }
+	public Setting(Database database, int id, String settingName) {
+		initDbObjectBase(database, id, settingName, Trace.SETTING);
+	}
 
-    public void setIntValue(int value) {
-        intValue = value;
-    }
+	public void setIntValue(int value) {
+		intValue = value;
+	}
+	public int getIntValue() {
+		return intValue;
+	}
 
-    public int getIntValue() {
-        return intValue;
-    }
+	public void setStringValue(String value) {
+		stringValue = value;
+	}
 
-    public void setStringValue(String value) {
-        stringValue = value;
-    }
+	public String getStringValue() {
+		return stringValue;
+	}
 
-    public String getStringValue() {
-        return stringValue;
-    }
+	@Override
+	public String getCreateSQLForCopy(Table table, String quotedName) {
+		throw DbException.throwInternalError(toString());
+	}
 
-    @Override
-    public String getCreateSQLForCopy(Table table, String quotedName) {
-        throw DbException.throwInternalError(toString());
-    }
+	@Override
+	public String getDropSQL() {
+		return null;
+	}
 
-    @Override
-    public String getDropSQL() {
-        return null;
-    }
+	@Override
+	public String getCreateSQL() {
+		StringBuilder buff = new StringBuilder("SET ");
+		buff.append(getSQL()).append(' ');
+		if (stringValue != null) {
+			buff.append(stringValue);
+		} else {
+			buff.append(intValue);
+		}
+		return buff.toString();
+	}
 
-    @Override
-    public String getCreateSQL() {
-        StringBuilder buff = new StringBuilder("SET ");
-        buff.append(getSQL()).append(' ');
-        if (stringValue != null) {
-            buff.append(stringValue);
-        } else {
-            buff.append(intValue);
-        }
-        return buff.toString();
-    }
+	@Override
+	public int getType() {
+		return DbObject.SETTING;
+	}
 
-    @Override
-    public int getType() {
-        return DbObject.SETTING;
-    }
+	@Override
+	public void removeChildrenAndResources(Session session) {
+		database.removeMeta(session, getId());
+		invalidate();
+	}
 
-    @Override
-    public void removeChildrenAndResources(Session session) {
-        database.removeMeta(session, getId());
-        invalidate();
-    }
-
-    @Override
-    public void checkRename() {
-        throw DbException.getUnsupportedException("RENAME");
-    }
+	@Override
+	public void checkRename() {
+		throw DbException.getUnsupportedException("RENAME");
+	}
 
 }

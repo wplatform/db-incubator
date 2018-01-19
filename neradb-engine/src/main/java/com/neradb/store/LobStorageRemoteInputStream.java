@@ -8,7 +8,7 @@ package com.neradb.store;
 import java.io.IOException;
 import java.io.InputStream;
 
-import com.neradb.message.DbException;
+import com.neradb.common.DbException;
 import com.neradb.value.ValueLobDb;
 
 /**

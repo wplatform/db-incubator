@@ -7,8 +7,8 @@ package com.neradb.dbobject;
 
 import java.util.HashMap;
 
+import com.neradb.common.utils.New;
 import com.neradb.dbobject.table.Table;
-import com.neradb.util.New;
 
 /**
  * A right owner (sometimes called principal).

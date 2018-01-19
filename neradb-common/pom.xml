@@ -8,7 +8,7 @@
 		<artifactId>neradb-project</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<groupId>org.neradb</groupId>
+	<groupId>com.neradb</groupId>
 	<artifactId>neradb-common</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>neradb-common</name>

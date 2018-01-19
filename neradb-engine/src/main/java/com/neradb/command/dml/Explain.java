@@ -5,10 +5,6 @@
  */
 package com.neradb.command.dml;
 
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.TreeMap;
-
 import com.neradb.command.CommandInterface;
 import com.neradb.command.Prepared;
 import com.neradb.command.expression.Expression;
@@ -16,7 +12,6 @@ import com.neradb.command.expression.ExpressionColumn;
 import com.neradb.dbobject.Database;
 import com.neradb.dbobject.table.Column;
 import com.neradb.engine.Session;
-import com.neradb.mvstore.db.MVTableEngine.Store;
 import com.neradb.result.LocalResult;
 import com.neradb.result.ResultInterface;
 import com.neradb.value.Value;

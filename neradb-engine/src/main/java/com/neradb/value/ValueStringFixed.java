@@ -5,8 +5,8 @@
  */
 package com.neradb.value;
 
-import com.neradb.engine.SysProperties;
-import com.neradb.util.StringUtils;
+import com.neradb.common.SysProperties;
+import com.neradb.common.utils.StringUtils;
 
 /**
  * Implementation of the CHAR data type.

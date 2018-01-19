@@ -73,7 +73,7 @@ public abstract class HashBase {
      * Check the size before adding an entry. This method resizes the map if
      * required.
      */
-    void checkSizePut() {
+    protected void checkSizePut() {
         if (deletedCount > size) {
             rehash(level);
         }

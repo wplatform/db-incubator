@@ -7,8 +7,8 @@ package com.neradb.store;
 
 import java.io.OutputStream;
 
-import com.neradb.engine.Constants;
-import com.neradb.tools.CompressTool;
+import com.neradb.common.Constants;
+import com.neradb.common.compress.CompressTool;
 
 /**
  * An output stream that is backed by a file store.

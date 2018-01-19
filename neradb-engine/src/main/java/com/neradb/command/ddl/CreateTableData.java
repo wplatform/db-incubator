@@ -7,10 +7,10 @@ package com.neradb.command.ddl;
 
 import java.util.ArrayList;
 
+import com.neradb.common.utils.New;
 import com.neradb.dbobject.schema.Schema;
 import com.neradb.dbobject.table.Column;
 import com.neradb.engine.Session;
-import com.neradb.util.New;
 
 /**
  * The data required to create a table.

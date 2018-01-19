@@ -11,12 +11,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.neradb.api.ErrorCode;
+import com.neradb.common.DbException;
+import com.neradb.common.ErrorCode;
+import com.neradb.common.utils.New;
+import com.neradb.common.utils.StatementBuilder;
+import com.neradb.common.utils.StringUtils;
 import com.neradb.jdbc.JdbcConnection;
-import com.neradb.message.DbException;
-import com.neradb.util.New;
-import com.neradb.util.StatementBuilder;
-import com.neradb.util.StringUtils;
 import com.neradb.value.DataType;
 import com.neradb.value.Value;
 import com.neradb.value.ValueNull;

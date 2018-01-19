@@ -9,10 +9,11 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Types;
 
-import com.neradb.engine.SysProperties;
+import com.neradb.common.SysProperties;
+import com.neradb.common.utils.Utils;
 import com.neradb.store.DataHandler;
+import com.neradb.util.CompareMode;
 import com.neradb.util.JdbcUtils;
-import com.neradb.util.Utils;
 
 /**
  * Implementation of the OBJECT data type.

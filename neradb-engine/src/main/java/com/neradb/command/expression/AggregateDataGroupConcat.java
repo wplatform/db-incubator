@@ -7,8 +7,8 @@ package com.neradb.command.expression;
 
 import java.util.ArrayList;
 
+import com.neradb.common.utils.New;
 import com.neradb.dbobject.Database;
-import com.neradb.util.New;
 import com.neradb.util.ValueHashMap;
 import com.neradb.value.Value;
 import com.neradb.value.ValueNull;

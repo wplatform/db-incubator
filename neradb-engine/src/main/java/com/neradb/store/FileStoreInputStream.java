@@ -8,10 +8,10 @@ package com.neradb.store;
 import java.io.IOException;
 import java.io.InputStream;
 
-import com.neradb.engine.Constants;
-import com.neradb.message.DbException;
-import com.neradb.mvstore.DataUtils;
-import com.neradb.tools.CompressTool;
+import com.neradb.common.Constants;
+import com.neradb.common.DbException;
+import com.neradb.common.compress.CompressTool;
+import com.neradb.common.utils.DataUtils;
 
 /**
  * An input stream that is backed by a file store.

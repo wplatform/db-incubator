@@ -8,12 +8,12 @@ package com.neradb.dbobject;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import com.neradb.api.Aggregate;
-import com.neradb.api.AggregateFunction;
 import com.neradb.command.Parser;
+import com.neradb.common.DbException;
 import com.neradb.dbobject.table.Table;
 import com.neradb.engine.Session;
-import com.neradb.message.DbException;
+import com.neradb.engine.spi.Aggregate;
+import com.neradb.engine.spi.AggregateFunction;
 import com.neradb.message.Trace;
 import com.neradb.util.JdbcUtils;
 import com.neradb.value.DataType;
@@ -94,7 +94,7 @@ public class UserAggregate extends DbObjectBase {
 
     /**
      * Wrap {@link AggregateFunction} in order to behave as
-     * {@link com.neradb.api.Aggregate}
+     * {@link com.neradb.engine.spi.Aggregate}
      **/
     private static class AggregateWrapper implements Aggregate {
         private final AggregateFunction aggregateFunction;

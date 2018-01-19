@@ -7,14 +7,14 @@ package com.neradb.command.expression;
 
 import java.util.Arrays;
 
+import com.neradb.common.DbException;
+import com.neradb.common.SysProperties;
+import com.neradb.common.utils.New;
 import com.neradb.dbobject.Database;
 import com.neradb.dbobject.index.IndexCondition;
 import com.neradb.dbobject.table.ColumnResolver;
 import com.neradb.dbobject.table.TableFilter;
 import com.neradb.engine.Session;
-import com.neradb.engine.SysProperties;
-import com.neradb.message.DbException;
-import com.neradb.util.New;
 import com.neradb.value.Value;
 import com.neradb.value.ValueBoolean;
 import com.neradb.value.ValueNull;
