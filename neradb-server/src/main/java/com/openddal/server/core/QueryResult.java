@@ -1,7 +1,7 @@
 
 package com.openddal.server.core;
 
-import com.openddal.result.ResultInterface;
+import com.neradb.result.ResultInterface;
 
 /**
  * @author jorgie.li

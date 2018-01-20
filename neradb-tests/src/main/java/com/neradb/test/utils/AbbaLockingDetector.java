@@ -1,9 +1,9 @@
 /*
- * Copyright 2004-2014 H2 Group. Multiple-Licensed under the MPL 2.0, Version
+ * Copyright 2004-2018 H2 Group. Multiple-Licensed under the MPL 2.0, Version
  * 1.0, and under the Eclipse Public License, Version 1.0
  * (http://h2database.com/html/license.html). Initial Developer: H2 Group
  */
-package com.neradb.common.utils;
+package com.neradb.test.utils;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.MonitorInfo;
@@ -23,7 +23,7 @@ import java.util.WeakHashMap;
  */
 public class AbbaLockingDetector implements Runnable {
 
-    private int tickIntervalMs = 2;
+    private final int tickIntervalMs = 2;
     private volatile boolean stop;
 
     private final ThreadMXBean threadMXBean =
@@ -35,8 +35,8 @@ public class AbbaLockingDetector implements Runnable {
      * (stack trace where locked) )
      */
     private final Map<String, Map<String, String>> lockOrdering =
-            new WeakHashMap<String, Map<String, String>>();
-    private final Set<String> knownDeadlocks = new HashSet<String>();
+            new WeakHashMap<>();
+    private final Set<String> knownDeadlocks = new HashSet<>();
 
     /**
      * Start collecting locking data.
@@ -105,7 +105,7 @@ public class AbbaLockingDetector implements Runnable {
     }
 
     private void processThreadList(ThreadInfo[] threadInfoList) {
-        final List<String> lockOrder = new ArrayList<String>();
+        final List<String> lockOrder = new ArrayList<>();
         for (ThreadInfo threadInfo : threadInfoList) {
             lockOrder.clear();
             generateOrdering(lockOrder, threadInfo);
@@ -147,7 +147,7 @@ public class AbbaLockingDetector implements Runnable {
         String topLock = lockOrder.get(lockOrder.size() - 1);
         Map<String, String> map = lockOrdering.get(topLock);
         if (map == null) {
-            map = new WeakHashMap<String, String>();
+            map = new WeakHashMap<>();
             lockOrdering.put(topLock, map);
         }
         String oldException = null;

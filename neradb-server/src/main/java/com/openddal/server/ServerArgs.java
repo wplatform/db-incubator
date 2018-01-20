@@ -15,8 +15,6 @@
  */
 package com.openddal.server;
 
-import com.openddal.util.StringUtils;
-
 public class ServerArgs {
 
 	public int port = -1;

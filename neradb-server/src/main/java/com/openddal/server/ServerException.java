@@ -18,7 +18,7 @@ package com.openddal.server;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import com.openddal.message.DbException;
+import com.neradb.common.DbException;
 import com.openddal.server.util.ErrorCode;
 
 /**

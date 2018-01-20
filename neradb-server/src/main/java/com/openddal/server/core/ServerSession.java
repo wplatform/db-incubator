@@ -18,11 +18,11 @@ package com.openddal.server.core;
 import java.util.Map;
 import java.util.Properties;
 
-import com.openddal.engine.Session;
+import com.neradb.common.utils.New;
+import com.neradb.engine.Session;
 import com.openddal.server.NettyServer;
 import com.openddal.server.ServerException;
 import com.openddal.server.util.CharsetUtil;
-import com.openddal.util.New;
 
 import io.netty.channel.Channel;
 import io.netty.util.AttributeKey;
