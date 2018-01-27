@@ -333,13 +333,6 @@ public class DbSettings extends SettingsBase {
     public final String defaultTableEngine = get("DEFAULT_TABLE_ENGINE", null);
 
     /**
-     * Database setting <code>MV_STORE</code>
-     * (default: false for version 1.3, true for version 1.4).<br />
-     * Use the MVStore storage engine.
-     */
-    public boolean mvStore = get("MV_STORE", Constants.VERSION_MINOR >= 4);
-
-    /**
      * Database setting <code>COMPRESS</code>
      * (default: false).<br />
      * Compress data when storing.

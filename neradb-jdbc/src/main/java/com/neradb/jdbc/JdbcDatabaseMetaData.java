@@ -27,7 +27,7 @@ import com.neradb.result.SimpleResultSet;
  * Represents the meta data for a database.
  */
 public class JdbcDatabaseMetaData extends TraceObject implements
-        DatabaseMetaData, JdbcDatabaseMetaDataBackwardsCompat {
+        DatabaseMetaData {
 
     private final JdbcConnection conn;
 

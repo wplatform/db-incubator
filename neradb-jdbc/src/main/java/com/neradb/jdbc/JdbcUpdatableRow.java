@@ -3,7 +3,7 @@
  * and the EPL 1.0 (http://h2database.com/html/license.html).
  * Initial Developer: H2 Group
  */
-package com.neradb.result;
+package com.neradb.jdbc;
 
 import java.sql.DatabaseMetaData;
 import java.sql.PreparedStatement;
@@ -16,7 +16,7 @@ import com.neradb.common.ErrorCode;
 import com.neradb.common.utils.New;
 import com.neradb.common.utils.StatementBuilder;
 import com.neradb.common.utils.StringUtils;
-import com.neradb.jdbc.JdbcConnection;
+import com.neradb.result.ResultInterface;
 import com.neradb.value.DataType;
 import com.neradb.value.Value;
 import com.neradb.value.ValueNull;
@@ -25,7 +25,7 @@ import com.neradb.value.ValueNull;
  * This class is used for updatable result sets. An updatable row provides
  * functions to update the current row in a result set.
  */
-public class UpdatableRow {
+public class JdbcUpdatableRow {
 
     private final JdbcConnection conn;
     private final ResultInterface result;
@@ -42,7 +42,7 @@ public class UpdatableRow {
      * @param conn the database connection
      * @param result the result
      */
-    public UpdatableRow(JdbcConnection conn, ResultInterface result)
+    public JdbcUpdatableRow(JdbcConnection conn, ResultInterface result)
             throws SQLException {
         this.conn = conn;
         this.result = result;

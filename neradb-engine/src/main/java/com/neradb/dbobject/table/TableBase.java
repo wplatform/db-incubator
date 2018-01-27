@@ -13,8 +13,6 @@ import com.neradb.common.utils.StatementBuilder;
 import com.neradb.common.utils.StringUtils;
 import com.neradb.dbobject.Database;
 import com.neradb.engine.DbSettings;
-import com.neradb.mvstore.db.MVTableEngine;
-
 /**
  * The base class of a regular table, or a user defined table.
  *

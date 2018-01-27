@@ -38,7 +38,6 @@ import com.neradb.common.utils.New;
 import com.neradb.common.utils.StringUtils;
 import com.neradb.message.TraceObject;
 import com.neradb.result.ResultInterface;
-import com.neradb.result.UpdatableRow;
 import com.neradb.util.CompareMode;
 import com.neradb.util.DateTimeUtils;
 import com.neradb.util.LocalDateTimeUtils;
@@ -2557,7 +2556,7 @@ public class JdbcResultSet extends TraceObject implements ResultSet {
             if (!updatable) {
                 return ResultSet.CONCUR_READ_ONLY;
             }
-            UpdatableRow row = new UpdatableRow(conn, result);
+            JdbcUpdatableRow row = new JdbcUpdatableRow(conn, result);
             return row.isUpdatable() ? ResultSet.CONCUR_UPDATABLE
                     : ResultSet.CONCUR_READ_ONLY;
         } catch (Exception e) {
@@ -3021,7 +3020,7 @@ public class JdbcResultSet extends TraceObject implements ResultSet {
             }
             checkOnValidRow();
             if (updateRow != null) {
-                UpdatableRow row = getUpdatableRow();
+                JdbcUpdatableRow row = getUpdatableRow();
                 Value[] current = new Value[columnCount];
                 for (int i = 0; i < updateRow.length; i++) {
                     current[i] = get(i + 1);
@@ -3109,8 +3108,8 @@ public class JdbcResultSet extends TraceObject implements ResultSet {
 
     // =============================================================
 
-    private UpdatableRow getUpdatableRow() throws SQLException {
-        UpdatableRow row = new UpdatableRow(conn, result);
+    private JdbcUpdatableRow getUpdatableRow() throws SQLException {
+        JdbcUpdatableRow row = new JdbcUpdatableRow(conn, result);
         if (!row.isUpdatable()) {
             throw DbException.get(ErrorCode.RESULT_SET_NOT_UPDATABLE);
         }

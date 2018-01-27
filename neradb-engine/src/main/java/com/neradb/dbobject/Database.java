@@ -16,9 +16,11 @@ import com.neradb.common.DbException;
 import com.neradb.common.ErrorCode;
 import com.neradb.common.SysProperties;
 import com.neradb.common.io.FileUtils;
-import com.neradb.common.io.InDoubtTransaction;
 import com.neradb.common.utils.BitField;
+import com.neradb.common.utils.CaseInsensitiveConcurrentMap;
+import com.neradb.common.utils.CaseInsensitiveMap;
 import com.neradb.common.utils.New;
+import com.neradb.common.utils.NullableKeyConcurrentMap;
 import com.neradb.common.utils.SmallLRUCache;
 import com.neradb.common.utils.SourceCompiler;
 import com.neradb.common.utils.StringUtils;
@@ -49,21 +51,16 @@ import com.neradb.engine.spi.JavaObjectSerializer;
 import com.neradb.engine.spi.TableEngine;
 import com.neradb.message.Trace;
 import com.neradb.message.TraceSystem;
-import com.neradb.mvstore.db.MVTableEngine;
 import com.neradb.result.Row;
 import com.neradb.result.RowFactory;
 import com.neradb.result.SearchRow;
 import com.neradb.store.DataHandler;
 import com.neradb.store.FileStore;
-import com.neradb.store.LobStorageBackend;
 import com.neradb.store.LobStorageFrontend;
 import com.neradb.store.LobStorageInterface;
 import com.neradb.store.LobStorageMap;
 import com.neradb.util.CompareMode;
 import com.neradb.util.JdbcUtils;
-import com.neradb.value.CaseInsensitiveConcurrentMap;
-import com.neradb.value.CaseInsensitiveMap;
-import com.neradb.value.NullableKeyConcurrentMap;
 import com.neradb.value.Value;
 import com.neradb.value.ValueInt;
 
@@ -132,7 +129,6 @@ public class Database implements DataHandler {
 	private LobStorageInterface lobStorage;
 	private int defaultTableType = Table.TYPE_CACHED;
 	private final DbSettings dbSettings;
-	private MVTableEngine.Store mvStore;
 	private DbException backgroundException;
 	private JavaObjectSerializer javaObjectSerializer;
 	private String javaObjectSerializerName;
@@ -215,14 +211,6 @@ public class Database implements DataHandler {
 
 	public void setRowFactory(RowFactory rowFactory) {
 		this.rowFactory = rowFactory;
-	}
-
-	public MVTableEngine.Store getMvStore() {
-		return mvStore;
-	}
-
-	public void setMvStore(MVTableEngine.Store mvStore) {
-		this.mvStore = mvStore;
 	}
 
 	/**
@@ -418,10 +406,6 @@ public class Database implements DataHandler {
 			for (MetaRecord rec : records) {
 				rec.execute(this, systemSession);
 			}
-		}
-		if (mvStore != null) {
-			mvStore.initTransactions();
-			mvStore.removeTemporaryMaps(objectIds);
 		}
 		recompileInvalidViews(systemSession);
 		starting = false;
@@ -876,11 +860,6 @@ public class Database implements DataHandler {
 	}
 
 	private void removeOrphanedLobs() {
-		boolean lobStorageIsUsed = infoSchema.findTableOrView(systemSession, LobStorageBackend.LOB_DATA_TABLE) != null;
-		lobStorageIsUsed |= mvStore != null;
-		if (!lobStorageIsUsed) {
-			return;
-		}
 		try {
 			getLobStorage();
 			lobStorage.removeAllForTable(LobStorageFrontend.TABLE_ID_SESSION_VARIABLE);
@@ -896,18 +875,6 @@ public class Database implements DataHandler {
 	 *            whether writing is allowed
 	 */
 	private synchronized void closeOpenFilesAndUnlock(boolean flush) {
-		if (mvStore != null) {
-			long maxCompactTime = dbSettings.maxCompactTime;
-			if (compactMode == CommandInterface.SHUTDOWN_COMPACT) {
-				mvStore.compactFile(dbSettings.maxCompactTime);
-			} else if (compactMode == CommandInterface.SHUTDOWN_DEFRAG) {
-				maxCompactTime = Long.MAX_VALUE;
-			} else if (getSettings().defragAlways) {
-				maxCompactTime = Long.MAX_VALUE;
-			}
-			mvStore.close(maxCompactTime);
-		}
-		closeFiles();
 		deleteOldTempFiles();
 		if (systemSession != null) {
 			systemSession.close();
@@ -919,15 +886,7 @@ public class Database implements DataHandler {
 		}
 	}
 
-	private synchronized void closeFiles() {
-		try {
-			if (mvStore != null) {
-				mvStore.closeImmediately();
-			}
-		} catch (DbException e) {
-			trace.error(e, "close");
-		}
-	}
+ 
 
 	private void checkMetaFree(Session session, int id) {
 		SearchRow r = meta.getTemplateSimpleRow(false);
@@ -1399,14 +1358,7 @@ public class Database implements DataHandler {
 		return false;
 	}
 
-	/**
-	 * Get the list of in-doubt transactions.
-	 *
-	 * @return the list
-	 */
-	public ArrayList<InDoubtTransaction> getInDoubtTransactions() {
-		return mvStore.getInDoubtTransactions();
-	}
+ 
 
 	private void throwLastBackgroundException() {
 		if (backgroundException != null) {
@@ -1436,15 +1388,7 @@ public class Database implements DataHandler {
 	 * Flush all pending changes to the transaction log.
 	 */
 	public synchronized void flush() {
-
-		if (mvStore != null) {
-			try {
-				mvStore.flush();
-			} catch (RuntimeException e) {
-				backgroundException = DbException.convert(e);
-				throw e;
-			}
-		}
+	    
 	}
 
 	/**
@@ -1465,9 +1409,7 @@ public class Database implements DataHandler {
 	 * executing the SQL statement CHECKPOINT SYNC.
 	 */
 	public synchronized void sync() {
-		if (mvStore != null) {
-			mvStore.sync();
-		}
+	    
 	}
 
 	public int getMaxMemoryRows() {
@@ -1652,18 +1594,6 @@ public class Database implements DataHandler {
 	}
 
 	public void setMultiThreaded(boolean multiThreaded) {
-		if (multiThreaded && this.multiThreaded != multiThreaded) {
-			if (multiVersion && mvStore == null) {
-				// currently the combination of MVCC and MULTI_THREADED is not
-				// supported
-				throw DbException.get(ErrorCode.UNSUPPORTED_SETTING_COMBINATION, "MVCC & MULTI_THREADED");
-			}
-			if (lockMode == 0) {
-				// currently the combination of LOCK_MODE=0 and MULTI_THREADED
-				// is not supported
-				throw DbException.get(ErrorCode.UNSUPPORTED_SETTING_COMBINATION, "LOCK_MODE=0 & MULTI_THREADED");
-			}
-		}
 		this.multiThreaded = multiThreaded;
 	}
 
@@ -1732,7 +1662,6 @@ public class Database implements DataHandler {
 		} catch (DbException e) {
 			// ignore
 		}
-		closeFiles();
 	}
 
 	@Override
@@ -1789,11 +1718,7 @@ public class Database implements DataHandler {
 	@Override
 	public LobStorageInterface getLobStorage() {
 		if (lobStorage == null) {
-			if (dbSettings.mvStore) {
-				lobStorage = new LobStorageMap(this);
-			} else {
-				lobStorage = new LobStorageBackend(this);
-			}
+            lobStorage = new LobStorageMap(this);
 		}
 		return lobStorage;
 	}
