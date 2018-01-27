@@ -48,7 +48,6 @@ import com.neradb.dbobject.schema.Schema;
 import com.neradb.dbobject.schema.Sequence;
 import com.neradb.dbobject.table.Column;
 import com.neradb.dbobject.table.ColumnResolver;
-import com.neradb.dbobject.table.LinkSchema;
 import com.neradb.dbobject.table.Table;
 import com.neradb.dbobject.table.TableFilter;
 import com.neradb.engine.Mode;
@@ -118,7 +117,7 @@ public class Function extends Expression implements FunctionCall {
             NEXTVAL = 207, CURRVAL = 208, ARRAY_GET = 209, CSVREAD = 210,
             CSVWRITE = 211, MEMORY_FREE = 212, MEMORY_USED = 213,
             LOCK_MODE = 214, SCHEMA = 215, SESSION_ID = 216,
-            ARRAY_LENGTH = 217, LINK_SCHEMA = 218, GREATEST = 219, LEAST = 220,
+            ARRAY_LENGTH = 217, /*LINK_SCHEMA = 218,*/ GREATEST = 219, LEAST = 220,
             CANCEL_SESSION = 221, SET = 222, TABLE = 223, TABLE_DISTINCT = 224,
             FILE_READ = 225, TRANSACTION_ID = 226, TRUNCATE_VALUE = 227,
             NVL2 = 228, DECODE = 229, ARRAY_CONTAINS = 230, FILE_WRITE = 232;
@@ -454,8 +453,6 @@ public class Function extends Expression implements FunctionCall {
                 0, Value.INT);
         addFunction("ARRAY_LENGTH", ARRAY_LENGTH,
                 1, Value.INT);
-        addFunctionNotDeterministic("LINK_SCHEMA", LINK_SCHEMA,
-                6, Value.RESULT_SET);
         addFunctionWithNull("LEAST", LEAST,
                 VAR_ARGS, Value.NULL);
         addFunctionWithNull("GREATEST", GREATEST,
@@ -1566,15 +1563,6 @@ public class Function extends Expression implements FunctionCall {
             } catch (SQLException e) {
                 throw DbException.convert(e);
             }
-            break;
-        }
-        case LINK_SCHEMA: {
-            session.getUser().checkAdmin();
-            Connection conn = session.createConnection(false);
-            ResultSet rs = LinkSchema.linkSchema(conn, v0.getString(),
-                    v1.getString(), v2.getString(), v3.getString(),
-                    v4.getString(), v5.getString());
-            result = ValueResultSet.get(rs);
             break;
         }
         case CSVWRITE: {

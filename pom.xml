@@ -53,7 +53,6 @@
 		<module>neradb-engine</module>
         <module>neradb-server</module>
 		<module>neradb-metaserver</module>
- 		<module>neradb-jdbc</module>
 		<module>neradb-tests</module>
   </modules>
 

@@ -33,7 +33,7 @@
 
 		<dependency>
 			<groupId>com.neradb</groupId>
-			<artifactId>neradb-jdbc</artifactId>
+			<artifactId>neradb-engine</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 
